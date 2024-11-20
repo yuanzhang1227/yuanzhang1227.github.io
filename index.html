@@ -14,38 +14,40 @@
 
         /* Shooting Stars Background */
         .top-section {
-            height: 100vh;
+            height: 200px;
             background: radial-gradient(circle, #111 40%, #000 100%);
             position: relative;
             overflow: hidden;
-            animation: background-stars 10s infinite linear;
         }
 
-        .top-section:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('photo.jpg') no-repeat top right;
-            background-size: 15%;
-            opacity: 0.9;
+        .top-section .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding-top: 20px;
         }
 
-        @keyframes background-stars {
-            from { background-position: 0 0; }
-            to { background-position: -1000px -1000px; }
+        .top-section .nav-links a {
+            color: #ff8c00;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .top-section .nav-links a:hover {
+            color: #ff00ff;
+            transform: scale(1.1);
         }
 
         /* Shooting Stars */
         .star {
-            width: 2px;
-            height: 2px;
+            width: 4px;
+            height: 4px;
             background: white;
             border-radius: 50%;
             position: absolute;
-            animation: shooting 4s infinite ease-in-out;
+            animation: shooting 2s infinite ease-in-out;
         }
 
         @keyframes shooting {
@@ -59,31 +61,24 @@
             }
         }
 
-        .nav-links {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .nav-links a {
-            color: #ff8c00;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: transform 0.3s, color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ff00ff;
-            transform: scale(1.1);
-        }
-
+        /* Main Content */
         .main-content {
             padding: 40px;
-            max-width: 800px;
+            max-width: 1200px;
             margin: auto;
+        }
+
+        .about-me {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .about-me img {
+            width: 200px;
+            border-radius: 10px;
+            border: 2px solid #ff8c00;
         }
 
         .section {
@@ -138,6 +133,7 @@
     </style>
 </head>
 <body>
+    <!-- Top Section -->
     <div class="top-section">
         <div class="nav-links">
             <a href="#resume">Resume</a>
@@ -147,14 +143,16 @@
         </div>
     </div>
 
+    <!-- Main Content -->
     <div class="main-content">
-        <div id="about-me" class="section">
-            <h2>About Me</h2>
-            <p>
-                I am Yuan Zhang, a PhD student in computational social science at the University of Zurich. 
-                My research explores uncivil language, automated classification, and network analysis. 
-                I also focus on the fairness and interpretability of large language models.
-            </p>
+        <div id="about-me" class="about-me">
+            <div>
+                <h2>About Me</h2>
+                <p>
+                    I am Yuan Zhang, a PhD student in computational social science at the University of Zurich. 
+                </p>
+            </div>
+            <img src="photo.jpg" alt="Yuan Zhang's photo">
         </div>
 
         <div id="publications" class="section">
@@ -169,7 +167,7 @@
         </div>
 
         <div id="news" class="section">
-            <h2>News List</h2>
+            <h2>Updated News</h2>
             <ul>
                 <li><a href="#">News 1</a></li>
                 <li><a href="#">News 2</a></li>
@@ -180,7 +178,7 @@
         </div>
 
         <div id="blog" class="section">
-            <h2>Blog List</h2>
+            <h2>Blog Series</h2>
             <ul>
                 <li><a href="#">Blog 1</a></li>
                 <li><a href="#">Blog 2</a></li>
@@ -191,6 +189,7 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>Contact Me</p>
         <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
@@ -199,19 +198,19 @@
         <a href="https://instagram.com" target="_blank">Instagram</a>
     </footer>
 
-    <!-- Shooting Stars -->
+    <!-- Shooting Stars Script -->
     <script>
         function createStar() {
             const star = document.createElement('div');
             star.className = 'star';
             star.style.left = `${Math.random() * window.innerWidth}px`;
-            star.style.top = `${Math.random() * window.innerHeight}px`;
+            star.style.top = `${Math.random() * 200}px`;
             document.querySelector('.top-section').appendChild(star);
 
-            setTimeout(() => star.remove(), 4000);
+            setTimeout(() => star.remove(), 2000);
         }
 
-        setInterval(createStar, 500);
+        setInterval(createStar, 200);
     </script>
 </body>
 </html>

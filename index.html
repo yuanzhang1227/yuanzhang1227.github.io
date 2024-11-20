@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuan Zhang's Resume</title>
+    <title>Yuan Zhang's Homepage</title>
     <style>
         body {
             margin: 0;
@@ -12,7 +12,7 @@
             color: #fff;
         }
 
-        /* Shooting Stars Background */
+        /* Top Section */
         .top-section {
             height: 200px;
             background: radial-gradient(circle, #111 40%, #000 100%);
@@ -20,11 +20,15 @@
             overflow: hidden;
         }
 
+        /* Name and Navigation Links */
         .top-section .nav-links {
             display: flex;
             justify-content: center;
             gap: 30px;
             padding-top: 20px;
+            position: absolute;
+            top: 10px;
+            width: 100%;
         }
 
         .top-section .nav-links a {
@@ -40,25 +44,15 @@
             transform: scale(1.1);
         }
 
-        /* Shooting Stars */
-        .star {
-            width: 4px;
-            height: 4px;
-            background: white;
-            border-radius: 50%;
+        /* Cat Animation */
+        .cat-animation {
             position: absolute;
-            animation: shooting 2s infinite ease-in-out;
-        }
-
-        @keyframes shooting {
-            0% {
-                opacity: 1;
-                transform: translate(0, 0);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-300px, -300px);
-            }
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background-image: url('cat_animation.gif'); /* Add the cat animation GIF */
+            background-size: cover;
         }
 
         /* Main Content */
@@ -111,26 +105,43 @@
             color: #ff8c00;
         }
 
-        /* Footer for Social Links */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #333;
+        /* Contact Section */
+        .contact-info {
+            margin-top: 20px;
         }
 
-        .footer a {
-            color: #ff8c00;
+        .contact-info a {
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.2em;
-            transition: color 0.3s, transform 0.3s;
+            color: #ff8c00;
         }
 
-        .footer a:hover {
-            color: #ff00ff;
-            transform: scale(1.1);
+        /* Hidden Description for News */
+        .news-description {
+            display: none;
+            background-color: #222;
+            padding: 10px;
+            margin-top: 5px;
+            color: #ddd;
+            border-left: 3px solid #ff8c00;
+        }
+
+        .news-description img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 10px;
         }
     </style>
+    <script>
+        function toggleDescription(id) {
+            var description = document.getElementById(id);
+            if (description.style.display === "none") {
+                description.style.display = "block";
+            } else {
+                description.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Top Section -->
@@ -141,6 +152,7 @@
             <a href="#news">News</a>
             <a href="#blog">Blog</a>
         </div>
+        <div class="cat-animation"></div> <!-- Animated Cat -->
     </div>
 
     <!-- Main Content -->
@@ -149,68 +161,67 @@
             <div>
                 <h2>About Me</h2>
                 <p>
-                    I am Yuan Zhang, a PhD student in computational social science at the University of Zurich. 
+                    I am Yuan Zhang, a Ph.D. student at the University of Zurich (UZH), advised by Prof. Frank Esser (Department of Communication Science and Media Research, University of Zurich), Prof. Laia Castro Herrero (Department of Political Science, University of Barcelona), and Prof. Alexandre Bovet (Department of Mathematical Modelling and Machine Learning & Digital Society Initiative, University of Zurich).<br><br>
+                    Prior to my Ph.D., I received an MSc in Social Data Science from the University of Oxford, an MSc in Political Science and Political Economy from the London School of Economics, and a BSc in Economics from Yunnan University.<br><br>
+                    My research interests focus on leveraging computational tools and statistical modeling to understand online human behavior. My PhD investigates the information structures on social media and their impact on political communication.
                 </p>
             </div>
             <img src="photo.jpg" alt="Yuan Zhang's photo">
         </div>
 
         <div id="publications" class="section">
-            <h2>Publication List</h2>
+            <h2>Publications</h2>
             <ul>
-                <li><a href="#">Publication 1</a></li>
-                <li><a href="#">Publication 2</a></li>
-                <li><a href="#">Publication 3</a></li>
-                <li><a href="#">Publication 4</a></li>
-                <li><a href="#">Publication 5</a></li>
+                <li><a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Zhang, Y., & Schroeder, R. (2024). “It’s All About US vs THEM!”: Comparing Chinese Populist Discourses on Weibo and Twitter. Social Media + Society, 10(1), 20563051241229659.</a></li>
+                <li><a href="https://arxiv.org/abs/2408.03828" target="_blank">Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.</a></li>
             </ul>
+            <p>For more updates on my publications, you can visit my <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
         </div>
 
         <div id="news" class="section">
-            <h2>Updated News</h2>
+            <h2>News</h2>
             <ul>
-                <li><a href="#">News 1</a></li>
-                <li><a href="#">News 2</a></li>
-                <li><a href="#">News 3</a></li>
-                <li><a href="#">News 4</a></li>
-                <li><a href="#">News 5</a></li>
+                <li><a href="javascript:void(0);" onclick="toggleDescription('news1')">Talk at NetPLACE, 14th November, 2024: "Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media."</a>
+                    <div id="news1" class="news-description">
+                        Full description: This talk discusses the findings from a recent study exploring the multilevel political selective exposure, echo chambers, and polarization phenomena on social media, with a specific focus on social media platforms' impact on public opinion dynamics.
+                    </div>
+                </li>
+                <li><a href="javascript:void(0);" onclick="toggleDescription('news2')">Talk at Department of Mathematical Modelling and Machine Learning (DM3L) Inaugural Symposium 2024, University of Zurich, Switzerland.</a>
+                    <div id="news2" class="news-description">
+                        Full description: The talk will present recent advancements in network science and machine learning techniques applied to the study of political communication dynamics across multiple scales.
+                    </div>
+                </li>
+                <li><a href="javascript:void(0);" onclick="toggleDescription('news3')">Talk at NetSci 2024, Québec, Canada: “Measuring Hierarchical Echo Chambers of Brazilian Political Communities” (Full Paper).</a>
+                    <div id="news3" class="news-description">
+                        Full description: A comprehensive presentation of a study examining hierarchical echo chambers within Brazilian political communities on social media, focusing on polarization and information filtering.
+                    </div>
+                </li>
+                <li><a href="javascript:void(0);" onclick="toggleDescription('news4')">Talk at IC2S2 2023, Copenhagen, Denmark: “One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter” (Full Paper).</a>
+                    <div id="news4" class="news-description">
+                        Full description: This talk delves into the comparative analysis of populist ultranationalist discourses in Chinese social media platforms, contrasting their manifestations on Weibo and Twitter.
+                    </div>
+                </li>
+                <li><a href="javascript:void(0);" onclick="toggleDescription('news5')">Talk at Summer School SICSS 2024, Vancouver, Canada.</a>
+                    <div id="news5" class="news-description">
+                        Full description: A presentation on the analysis of online political discourse in the context of the Summer School for Computational Social Science. 
+                        <img src="summer_school_SICSS.jpg" alt="Summer School SICSS" />
+                    </div>
+                </li>
+                <li><a href="javascript:void(0);" onclick="toggleDescription('news6')">Talk at Summer School PolCom 2024, Berlin, Germany.</a>
+                    <div id="news6" class="news-description">
+                        Full description: Discussing computational models of political communication during the Summer School in Political Communication. 
+                        <img src="summer_school_PolCom.jpg" alt="Summer School PolCom" />
+                    </div>
+                </li>
             </ul>
         </div>
 
-        <div id="blog" class="section">
-            <h2>Blog Series</h2>
-            <ul>
-                <li><a href="#">Blog 1</a></li>
-                <li><a href="#">Blog 2</a></li>
-                <li><a href="#">Blog 3</a></li>
-                <li><a href="#">Blog 4</a></li>
-                <li><a href="#">Blog 5</a></li>
-            </ul>
+        <div id="contact" class="section">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p>You can reach me at my <a href="mailto:zhang.y@uzh.ch">email</a> or follow me on <a href="https://twitter.com/YuanZhangPhD" target="_blank">Twitter</a>!</p>
+            </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>Contact Me</p>
-        <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
-        <a href="https://twitter.com" target="_blank">X</a>
-        <a href="https://facebook.com" target="_blank">Facebook</a>
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-    </footer>
-
-    <!-- Shooting Stars Script -->
-    <script>
-        function createStar() {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = `${Math.random() * window.innerWidth}px`;
-            star.style.top = `${Math.random() * 200}px`;
-            document.querySelector('.top-section').appendChild(star);
-
-            setTimeout(() => star.remove(), 2000);
-        }
-
-        setInterval(createStar, 200);
-    </script>
 </body>
 </html>

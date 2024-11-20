@@ -3,137 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume</title>
+    <title>Yuan Zhang's Resume</title>
     <style>
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
             background-color: #000; /* Black background */
             color: #fff;
-            line-height: 1.6;
         }
 
-        .header {
-            background: linear-gradient(90deg, #ff8c00, #ff0080);
-            padding: 50px 20px;
-            text-align: center;
-            color: #fff;
-            animation: gradient-animation 6s infinite alternate;
+        /* Shooting Stars Background */
+        .top-section {
+            height: 100vh;
+            background: radial-gradient(circle, #111 40%, #000 100%);
+            position: relative;
+            overflow: hidden;
+            animation: background-stars 10s infinite linear;
         }
 
-        .header h1 {
-            font-size: 3em;
-            margin: 0;
+        .top-section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('photo.jpg') no-repeat top right;
+            background-size: 15%;
+            opacity: 0.9;
         }
 
-        .header h2 {
-            font-size: 1.5em;
-            margin: 10px 0 0;
+        @keyframes background-stars {
+            from { background-position: 0 0; }
+            to { background-position: -1000px -1000px; }
         }
 
-        @keyframes gradient-animation {
-            0% { background: linear-gradient(90deg, #ff8c00, #ff0080); }
-            100% { background: linear-gradient(90deg, #ff0080, #00ffff); }
+        /* Shooting Stars */
+        .star {
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            animation: shooting 4s infinite ease-in-out;
+        }
+
+        @keyframes shooting {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-300px, -300px);
+            }
+        }
+
+        .nav-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-links a {
+            color: #ff8c00;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff00ff;
+            transform: scale(1.1);
+        }
+
+        .main-content {
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
         }
 
         .section {
-            padding: 20px;
-            margin: 20px;
-            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent effect */
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 40px;
         }
 
-        .section:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .section h3 {
-            margin-top: 0;
+        .section h2 {
             color: #ff8c00;
             border-bottom: 2px solid #ff8c00;
-            padding-bottom: 5px;
             display: inline-block;
+            margin-bottom: 10px;
         }
 
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            margin: 5px 0;
+        }
+
+        .section ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .section ul li a:hover {
+            color: #ff8c00;
+        }
+
+        /* Footer for Social Links */
         .footer {
             text-align: center;
             padding: 20px;
-            margin-top: 20px;
-            border-top: 1px solid #555;
+            border-top: 1px solid #333;
         }
 
         .footer a {
             color: #ff8c00;
             text-decoration: none;
-            transition: color 0.3s;
+            margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s, transform 0.3s;
         }
 
         .footer a:hover {
-            color: #ff0080;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .social-icons a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.5em;
-            transition: transform 0.3s;
-        }
-
-        .social-icons a:hover {
-            transform: scale(1.2);
-            color: #ff8c00;
+            color: #ff00ff;
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
+    <div class="top-section">
+        <div class="nav-links">
+            <a href="#resume">Resume</a>
+            <a href="#publications">Publications</a>
+            <a href="#news">News</a>
+            <a href="#blog">Blog</a>
+        </div>
+    </div>
 
-    <header class="header">
-        <h1>Yuan Zhang</h1>
-        <h2>PhD Student | Computational Social Science</h2>
-    </header>
+    <div class="main-content">
+        <div id="about-me" class="section">
+            <h2>About Me</h2>
+            <p>
+                I am Yuan Zhang, a PhD student in computational social science at the University of Zurich. 
+                My research explores uncivil language, automated classification, and network analysis. 
+                I also focus on the fairness and interpretability of large language models.
+            </p>
+        </div>
 
-    <section class="section">
-        <h3>About Me</h3>
-        <p>
-            I am a PhD student at the University of Zurich...
-        </p>
-    </section>
+        <div id="publications" class="section">
+            <h2>Publication List</h2>
+            <ul>
+                <li><a href="#">Publication 1</a></li>
+                <li><a href="#">Publication 2</a></li>
+                <li><a href="#">Publication 3</a></li>
+                <li><a href="#">Publication 4</a></li>
+                <li><a href="#">Publication 5</a></li>
+            </ul>
+        </div>
 
-    <section class="section">
-        <h3>Skills</h3>
-        <ul>
-            <li>Machine Learning</li>
-            <li>Large Language Models</li>
-            <li>Network Analysis</li>
-            <li>Data Visualization</li>
-        </ul>
-    </section>
+        <div id="news" class="section">
+            <h2>News List</h2>
+            <ul>
+                <li><a href="#">News 1</a></li>
+                <li><a href="#">News 2</a></li>
+                <li><a href="#">News 3</a></li>
+                <li><a href="#">News 4</a></li>
+                <li><a href="#">News 5</a></li>
+            </ul>
+        </div>
 
-    <section class="section">
-        <h3>Experience</h3>
-        <p>
-            Research Assistant at SNSF-funded projects. 
-        </p>
-    </section>
+        <div id="blog" class="section">
+            <h2>Blog List</h2>
+            <ul>
+                <li><a href="#">Blog 1</a></li>
+                <li><a href="#">Blog 2</a></li>
+                <li><a href="#">Blog 3</a></li>
+                <li><a href="#">Blog 4</a></li>
+                <li><a href="#">Blog 5</a></li>
+            </ul>
+        </div>
+    </div>
 
     <footer class="footer">
-        <p>Let's Connect:</p>
-        <div class="social-icons">
-            <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
-            <a href="https://github.com/your-profile" target="_blank">GitHub</a>
-            <a href="mailto:your-email@example.com">Email</a>
-        </div>
+        <p>Contact Me</p>
+        <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+        <a href="https://twitter.com" target="_blank">X</a>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
     </footer>
 
+    <!-- Shooting Stars -->
+    <script>
+        function createStar() {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * window.innerWidth}px`;
+            star.style.top = `${Math.random() * window.innerHeight}px`;
+            document.querySelector('.top-section').appendChild(star);
+
+            setTimeout(() => star.remove(), 4000);
+        }
+
+        setInterval(createStar, 500);
+    </script>
 </body>
 </html>

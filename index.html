@@ -3,236 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yuan Zhang's Resume</title>
+    <title>Yuan Zhang - Personal Website</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-color: #2e2e2e;
+            color: #f5f5f5;
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #000; /* Black background */
-            color: #fff;
-            overflow: hidden;
-        }
-
-        /* Top Section */
-        .top-section {
-            height: 200px;
-            background: radial-gradient(circle, #111 40%, #000 100%);
-            position: relative;
-            overflow: hidden;
-            padding-top: 20px;
-        }
-
-        /* Contact Information */
-        .contact-info {
-            text-align: center;
-            width: 100%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .contact-info h2 {
-            color: #ff8c00;
-        }
-
-        .contact-info p {
-            color: #fff;
-            margin: 10px 0;
-        }
-
-        .contact-info a {
-            color: #ff8c00;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 1.2em;
-            transition: transform 0.3s;
-        }
-
-        .contact-info a:hover {
-            transform: scale(1.1);
-        }
-
-        .contact-info i {
-            margin-right: 8px;
-        }
-
-        /* Shooting Star Effect */
-        .shooting-star {
-            position: absolute;
-            top: 50%;
-            left: 100%;
-            width: 100px;
-            height: 100px;
-            background-color: white;
-            clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
-            animation: shootingStar 3s infinite linear;
-        }
-
-        @keyframes shootingStar {
-            0% {
-                top: 50%;
-                left: 100%;
-                transform: rotate(45deg);
-            }
-            100% {
-                top: 100%;
-                left: 0;
-                transform: rotate(45deg);
-            }
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 40px;
-            max-width: 1200px;
-            margin: auto;
-            margin-top: 100px;
-        }
-
-        .about-me {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-            margin-bottom: 40px;
-            justify-content: center;
-        }
-
-        .about-me img {
-            width: 200px;
-            border-radius: 10px;
-            border: 2px solid #ff8c00;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            color: #ff8c00;
-            border-bottom: 2px solid #ff8c00;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        .section ul {
-            list-style: none;
             padding: 0;
         }
 
-        .section ul li {
-            margin: 5px 0;
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            position: relative;
         }
 
-        .section ul li a {
+        header h1 {
             color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
+            font-size: 2.5em;
         }
 
-        .section ul li a:hover {
-            color: #ff8c00;
-        }
-
-        /* Hidden Description for News */
-        .news-description {
-            display: none;
-            background-color: #222;
-            padding: 10px;
-            margin-top: 5px;
-            color: #ddd;
-            border-left: 3px solid #ff8c00;
-        }
-
-        .news-description img {
-            max-width: 100%;
-            height: auto;
+        header .contact-info {
+            color: orange;
+            font-size: 1.2em;
             margin-top: 10px;
-            border-radius: 10px;
         }
 
-        /* Floating Cat Animation */
-        .cat-animation {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 100px;
-            height: 100px;
-            background-image: url('cat_animation.gif'); /* Add the cat animation GIF */
-            background-size: cover;
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
         }
-    </style>
-    <script>
-        function toggleDescription(id) {
-            var description = document.getElementById(id);
-            if (description.style.display === "none") {
-                description.style.display = "block";
-            } else {
-                description.style.display = "none";
+
+        .nav a {
+            color: #fff;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .nav a:hover {
+            color: #00b5e2;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .section-title {
+            color: #00b5e2;
+            font-size: 2em;
+            margin-top: 40px;
+        }
+
+        .section-content {
+            margin-top: 20px;
+        }
+
+        .news-item {
+            background-color: #444;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .news-item a {
+            color: #00b5e2;
+            text-decoration: none;
+        }
+
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+
+        .shooting-stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shooting-stars .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: shoot 2s infinite linear;
+        }
+
+        @keyframes shoot {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(500px, 500px) scale(0.5);
             }
         }
-    </script>
+    </style>
 </head>
 <body>
-    <!-- Shooting Star Effect -->
-    <div class="shooting-star"></div>
-
-    <!-- Top Section -->
-    <div class="top-section">
+    <!-- Header Section -->
+    <header>
+        <h1>Yuan Zhang</h1>
         <div class="contact-info">
-            <h2>Contact Information</h2>
-            <p>Yuan Zhang<br>PhD student at University of Zurich<br>Interdisciplinary researcher on computational social science<br>Zurich, Switzerland 📍</p>
-            <p>Contact me on:</p>
-            <p>
-                <a href="mailto:y.zhang@ikmz.uzh.ch"><i class="fa fa-envelope"></i>Email</a>
-                <a href="https://x.com/Yuan_Z1227" target="_blank"><i class="fa fa-x"></i>X</a>
-                <a href="https://www.linkedin.com/in/yuan-zhang-9b5990194/" target="_blank"><i class="fa fa-linkedin"></i>LinkedIn</a>
-                <a href="https://github.com/yuanzhang1227" target="_blank"><i class="fa fa-github"></i>Github</a>
-                <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank"><i class="fa fa-google"></i>Google Scholar</a>
-            </p>
+            Contact: Yuan Zhang
         </div>
+    </header>
+
+    <!-- Navigation Section -->
+    <div class="nav">
+        <a href="#resume">Resume</a>
+        <a href="#publications">Publications</a>
+        <a href="#news">News</a>
+        <a href="#blog">Blog</a>
     </div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <div id="about-me" class="about-me">
-            <div>
-                <h2>About Me</h2>
-                <p>
-                    I am Yuan Zhang, a Ph.D. student at the University of Zurich (UZH), advised by Prof. Frank Esser (Department of Communication Science and Media Research, University of Zurich), Prof. Laia Castro Herrero (Department of Political Science, University of Barcelona), and Prof. Alexandre Bovet (Department of Mathematical Modelling and Machine Learning & Digital Society Initiative, University of Zurich).<br><br>
-                    Prior to my Ph.D., I received an MSc in Social Data Science from the University of Oxford, an MSc in Political Science and Political Economy from the London School of Economics, and a BSc in Economics from Yunnan University.<br><br>
-                    My research interests focus on leveraging computational tools and statistical modeling to understand online human behavior. My PhD investigates the information structures on social media and their impact on political communication.
-                </p>
+    <!-- Content Section -->
+    <div class="content">
+
+        <!-- Resume Section -->
+        <div id="resume" class="section">
+            <h2 class="section-title">Resume</h2>
+            <div class="section-content">
+                <!-- Resume Content Goes Here -->
             </div>
-            <img src="photo.jpg" alt="Yuan Zhang's photo">
         </div>
 
+        <!-- Publications Section -->
         <div id="publications" class="section">
-            <h2>Publications</h2>
-            <ul>
-                <li><a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Zhang, Y., & Schroeder, R. (2024). “It’s All About US vs THEM!”: Comparing Chinese Populist Discourses on Weibo and Twitter. Social Media + Society, 10(1), 20563051241229659.</a></li>
-                <li><a href="https://arxiv.org/abs/2408.03828" target="_blank">Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.</a></li>
-            </ul>
-            <p>For more updates on my publications, you can visit my <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
+            <h2 class="section-title">Publications</h2>
+            <div class="section-content">
+                <!-- Publications Content Goes Here -->
+            </div>
         </div>
 
+        <!-- News Section -->
         <div id="news" class="section">
-            <h2>News</h2>
-            <ul>
-                <li><a href="javascript:void(0);" onclick="toggleDescription('news1')">Talk at NetPLACE, 14th November, 2024: "Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media."</a>
-                    <div id="news1" class="news-description">
-                        This talk discusses the findings from a recent study exploring the multilevel political selective exposure, echo chambers, and polarization phenomena on social media. 
-                    </div>
-                </li>
-                <li><a href="javascript:void(0);" onclick="toggleDescription('news2')">SICSS Summer School 2024, Zurich, Switzerland: Teaching computational methods to students passionate about social media analysis.</a>
-                    <div id="news2" class="news-description">
-                        I taught a workshop at SICSS Summer School in Zurich, focusing on the use of computational methods to analyze social media data for political research.
-                        <img src="summer_school.jpg" alt="Summer School 2024">
-                    </div>
-                </li>
-            </ul>
+            <h2 class="section-title">News</h2>
+            <div class="section-content">
+                <div class="news-item">
+                    <h3>Talk at NetPLACE, 14th November, 2024</h3>
+                    <p>I gave a talk at NetPLACE titled “Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media.” The presentation was followed by a discussion on integrating theory and methodology in computational social science research.</p>
+                    <p>For more information, visit: <a href="https://sites.google.com/view/netplace/blog/blogpost-040" target="_blank">NetPLACE Blog</a></p>
+                </div>
+                <div class="news-item">
+                    <h3>Talk at Department of Mathematical Modelling and Machine Learning (DM3L) Inaugural Symposium 2024, University of Zurich, Switzerland</h3>
+                    <p>I gave a lightning talk titled “Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media”.</p>
+                </div>
+                <div class="news-item">
+                    <h3>Talk at NetSci 2024. Québec, Canada</h3>
+                    <p>I presented the first work of my PhD titled “Measuring Hierarchical Echo Chambers of Brazilian Political Communities”.</p>
+                    <p>You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">Measuring Hierarchical Echo Chambers</a></p>
+                </div>
+                <div class="news-item">
+                    <h3>Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</h3>
+                    <p>I presented my Master’s work titled “One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter.”</p>
+                    <p>You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">One Image, Two Mirrors</a></p>
+                </div>
+                <div class="news-item">
+                    <h3>Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</h3>
+                    <p>I presented an in-progress work titled “Untangling the Spread of Political Incivility on Twitter: An Examination of Contagion Dynamics in Networked Communities”.</p>
+                </div>
+                <div class="news-item">
+                    <h3>Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</h3>
+                    <p>I was thrilled to attend the Summer Institute in Computational Social Science in Edinburgh during the summer of 2023.</p>
+                    <img src="summer_school_SICSS.jpg" alt="Summer School SICSS" width="200px">
+                </div>
+                <div class="news-item">
+                    <h3>Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</h3>
+                    <p>I was thrilled to attend the Summer School of the Standing Group on Political Communication in Amsterdam during the summer of 2023.</p>
+                    <img src="summer_school_PolCom.jpg" alt="Summer School PolCom" width="200px">
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Section -->
+        <div id="blog" class="section">
+            <h2 class="section-title">Blog</h2>
+            <div class="section-content">
+                <!-- Blog Content Goes Here -->
+            </div>
         </div>
     </div>
 
-    <!-- Floating Cat Animation -->
-    <div class="cat-animation"></div>
+    <!-- Shooting Star Animation -->
+    <div class="shooting-stars">
+        <!-- Dynamically add shooting stars here using JavaScript -->
+    </div>
+
+    <script>
+        // Create shooting stars dynamically
+        function createShootingStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            const size = Math.random() * 5 + 2; // Random size for each star
+            const duration = Math.random() * 3 + 2; // Random speed of shooting
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.animationDuration = `${duration}s`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            document.querySelector('.shooting-stars').appendChild(star);
+            setTimeout(() => star.remove(), duration * 1000);
+        }
+
+        setInterval(createShootingStar, 500);
+    </script>
 </body>
 </html>

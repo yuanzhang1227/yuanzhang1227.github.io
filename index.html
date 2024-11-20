@@ -14,47 +14,10 @@
 
         /* Top Section */
         .top-section {
-            height: 300px;
+            height: 200px;
             background: radial-gradient(circle, #111 40%, #000 100%);
             position: relative;
             overflow: hidden;
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
-
-        /* Stars Effect */
-        .stars {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            background: transparent;
-            pointer-events: none;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background-color: #fff;
-            border-radius: 50%;
-            animation: sparkle 2s linear infinite;
-        }
-
-        @keyframes sparkle {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.5);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(0);
-                opacity: 0;
-            }
         }
 
         /* Shooting Star Effect */
@@ -66,7 +29,6 @@
             height: 2px;
             background-color: #ff00ff;
             animation: shoot 2s linear infinite;
-            z-index: 2;
         }
 
         @keyframes shoot {
@@ -80,47 +42,39 @@
             }
         }
 
-        /* Left Section */
-        .left-section {
-            width: 50%;
-            z-index: 3;
+        /* Name and Navigation Links */
+        .top-section .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding-top: 20px;
+            position: absolute;
+            top: 10px;
+            width: 100%;
         }
 
-        .left-section h1 {
-            font-size: 2em;
+        .top-section .nav-links a {
             color: #ff8c00;
-        }
-
-        .left-section p {
-            margin: 10px 0;
-            line-height: 1.5;
-        }
-
-        .contact-info {
-            margin-top: 10px;
-        }
-
-        .contact-info a {
             text-decoration: none;
-            color: #ff8c00;
-            display: block;
-            margin: 5px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: transform 0.3s, color 0.3s;
         }
 
-        .contact-info a:hover {
+        .top-section .nav-links a:hover {
             color: #ff00ff;
+            transform: scale(1.1);
         }
 
-        /* Right Section */
-        .right-section {
-            width: 40%;
-            z-index: 3;
-        }
-
-        .right-section img {
-            width: 250px;
-            border-radius: 10px;
-            border: 2px solid #ff8c00;
+        /* Cat Animation */
+        .cat-animation {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background-image: url('cat_animation.gif'); /* Add the cat animation GIF */
+            background-size: cover;
         }
 
         /* Main Content */
@@ -128,6 +82,23 @@
             padding: 40px;
             max-width: 1200px;
             margin: auto;
+        }
+
+        .about-me {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .about-me img {
+            width: 200px;
+            border-radius: 10px;
+            border: 2px solid #ff8c00;
+        }
+
+        .section {
+            margin-bottom: 40px;
         }
 
         .section h2 {
@@ -142,6 +113,10 @@
             padding: 0;
         }
 
+        .section ul li {
+            margin: 5px 0;
+        }
+
         .section ul li a {
             color: #fff;
             text-decoration: none;
@@ -152,7 +127,7 @@
             color: #ff8c00;
         }
 
-        /* Footer */
+        /* Footer for Social Links */
         .footer {
             text-align: center;
             padding: 20px;
@@ -163,58 +138,43 @@
             color: #ff8c00;
             text-decoration: none;
             margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .footer a:hover {
+            color: #ff00ff;
+            transform: scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: #ff8c00;
         }
     </style>
 </head>
 <body>
     <!-- Top Section -->
     <div class="top-section">
-        <!-- Stars Effect -->
-        <div class="stars">
-            <div class="star" style="top: 20%; left: 30%; animation-delay: 0s;"></div>
-            <div class="star" style="top: 50%; left: 70%; animation-delay: 1s;"></div>
-            <div class="star" style="top: 10%; left: 80%; animation-delay: 2s;"></div>
+        <div class="nav-links">
+            <a href="#resume">Resume</a>
+            <a href="#publications">Publications</a>
+            <a href="#news">News</a>
+            <a href="#blog">Blog</a>
         </div>
-        <!-- Shooting Star -->
+        <div class="cat-animation"></div> <!-- Animated Cat -->
+        <!-- Shooting Star Effect -->
         <div class="shooting-star"></div>
-
-        <!-- Left Section -->
-        <div class="left-section">
-            <h1>Yuan Zhang</h1>
-            <p>PhD student at University of Zurich</p>
-            <p>Interdisciplinary researcher on computational social science</p>
-            <p>Zurich, Switzerland</p>
-            <div class="contact-info">
-                <a href="mailto:y.zhang@ikmz.uzh.ch">📧 Email: y.zhang@ikmz.uzh.ch</a>
-                <a href="https://x.com/Yuan_Z1227">✖️ X: Yuan_Z1227</a>
-                <a href="https://www.linkedin.com/in/yuan-zhang-9b5990194/">🔗 LinkedIn: Yuan Zhang</a>
-                <a href="https://github.com/yuanzhang1227">🐙 GitHub: Yuan Zhang</a>
-                <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en">📚 Google Scholar: Yuan Zhang</a>
-            </div>
-        </div>
-
-        <!-- Right Section -->
-        <div class="right-section">
-            <img src="photo.jpg" alt="Yuan Zhang">
-        </div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
-        <!-- About Me Section -->
-        <div class="section">
-            <h2>About Me</h2>
-            <p>I am a Ph.D. student at the University of Zurich (UZH), advised by Prof. Frank Esser...</p>
-        </div>
-
-        <!-- Publications Section -->
-        <div class="section">
-            <h2>Publications</h2>
-            <ul>
-                <li><a href="#">Publication 1</a></li>
-                <li><a href="#">Publication 2</a></li>
-            </ul>
-        </div>
-    </div>
-</body>
-</html>
+        <div id="about-me" class="about-me">
+            <div>
+                <h2>About Me</h2>
+                <p>

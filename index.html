@@ -7,13 +7,14 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      background-color: black;
+      color: white;
       margin: 0;
       padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
+      overflow: hidden;
     }
 
     header {
@@ -22,6 +23,8 @@
       padding: 20px;
       width: 100%;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     header h1 {
@@ -34,6 +37,7 @@
       flex-direction: row;
       max-width: 1200px;
       margin: 20px;
+      z-index: 1;
     }
 
     .left-column {
@@ -98,9 +102,51 @@
       position: fixed;
       bottom: 0;
     }
+
+    /* Shooting stars animation */
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: white;
+      animation: shoot 1.5s infinite;
+    }
+
+    @keyframes shoot {
+      0% {
+        top: -10px;
+        left: -10px;
+        opacity: 1;
+      }
+      100% {
+        top: 100vh;
+        left: 100vw;
+        opacity: 0;
+      }
+    }
+
+    /* Star field background */
+    .star-field {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
   </style>
 </head>
 <body>
+  <!-- Star field container -->
+  <div class="star-field">
+    <div class="shooting-star" style="top: 30%; left: 40%; animation-delay: 0s;"></div>
+    <div class="shooting-star" style="top: 10%; left: 70%; animation-delay: 0.5s;"></div>
+    <div class="shooting-star" style="top: 50%; left: 30%; animation-delay: 1s;"></div>
+    <div class="shooting-star" style="top: 20%; left: 80%; animation-delay: 1.5s;"></div>
+    <div class="shooting-star" style="top: 60%; left: 20%; animation-delay: 2s;"></div>
+  </div>
+
   <header>
     <h1>Yuan Zhang's Homepage</h1>
   </header>
@@ -135,13 +181,13 @@
         <li class="news-item"><strong>Talk at NetSci 2024. Québec, Canada</strong><br>I presented the first work of my PhD titled “Measuring Hierarchical Echo Chambers of Brazilian Political Communities”. <a href="https://arxiv.org/abs/2408.03828">Read the full paper</a></li>
         <li class="news-item"><strong>Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</strong><br>I presented my Master’s work titled “One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter.” <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659">Read the full paper</a></li>
         <li class="news-item"><strong>Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</strong><br>I presented an in-progress work titled “Untangling the Spread of Political Incivility on Twitter: An Examination of Contagion Dynamics in Networked Communities”.</li>
-        <li class="news-item"><strong>Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</strong><br>I was thrilled to attend the Summer Institute in Computational Social Science in Edinburgh during the summer of 2023. <img src="summer_school_SICSS.jpg" alt="Summer School SICSS" width="200"></li>
-        <li class="news-item"><strong>Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</strong><br>I was thrilled to attend the Summer School of the Standing Group on Political Communication in Amsterdam during the summer of 2023. <img src="summer_school_PolCom.jpg" alt="Summer School PolCom" width="200"></li>
+        <li class="news-item"><strong>Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</strong><br>I participated in the Summer Institute in Computational Social Science.</li>
+        <li class="news-item"><strong>Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</strong><br>I attended the Summer School of the Standing Group on Political Communication.</li>
       </ul>
     </div>
 
     <div class="right-column">
-      <img src="photo.jpg" alt="Yuan Zhang">
+      <img src="your-photo.jpg" alt="Yuan Zhang">
     </div>
   </div>
 </body>

@@ -67,9 +67,7 @@
         /* Navigation */
         .nav-links {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
+            gap: 20px;
         }
 
         .nav-links a {
@@ -89,30 +87,35 @@
             position: absolute;
             top: -50px;
             left: -50px;
-            width: 5px;
-            height: 5px;
+            width: 8px;
+            height: 8px;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.9), transparent);
             border-radius: 50%;
-            animation: shooting 3s linear infinite;
+            animation: shooting 2s linear infinite;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
 
         @keyframes shooting {
             0% {
-                transform: translateX(0) translateY(0) scale(1);
+                transform: translateX(0) translateY(0) scale(1.2);
                 opacity: 1;
             }
             100% {
-                transform: translateX(600px) translateY(300px) scale(0.5);
+                transform: translateX(800px) translateY(300px) scale(0.5);
                 opacity: 0;
             }
         }
 
         .shooting-star:nth-child(2) {
-            animation-delay: 1s;
+            animation-delay: 0.5s;
         }
 
         .shooting-star:nth-child(3) {
-            animation-delay: 2s;
+            animation-delay: 1s;
+        }
+
+        .shooting-star:nth-child(4) {
+            animation-delay: 1.5s;
         }
 
         /* Main Content */
@@ -164,10 +167,11 @@
             align-items: center;
             gap: 30px;
             margin-bottom: 40px;
+            color: #fff;
         }
 
         .about-me img {
-            width: 300px;
+            width: 200px;
             border-radius: 10px;
             border: 2px solid #ff8c00;
         }
@@ -204,19 +208,19 @@
             <p>Zurich, Switzerland &#x1F4CD;</p>
             <div class="contact-icons">
                 <a href="mailto:y.zhang@ikmz.uzh.ch">
-                    <img src="email_icon.png" alt="Email Icon"> y.zhang@ikmz.uzh.ch
+                    &#x2709; y.zhang@ikmz.uzh.ch
                 </a>
                 <a href="https://x.com/Yuan_Z1227" target="_blank">
-                    <img src="x_icon.png" alt="X Icon"> @Yuan_Z1227
+                    &#x1F426; @Yuan_Z1227
                 </a>
                 <a href="https://www.linkedin.com/in/yuan-zhang-9b5990194/" target="_blank">
-                    <img src="linkedin_icon.png" alt="LinkedIn Icon"> LinkedIn
+                    &#x1F4C8; LinkedIn
                 </a>
                 <a href="https://github.com/yuanzhang1227" target="_blank">
-                    <img src="github_icon.png" alt="GitHub Icon"> GitHub
+                    &#x1F4BB; GitHub
                 </a>
                 <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank">
-                    <img src="scholar_icon.png" alt="Google Scholar Icon"> Google Scholar
+                    &#x1F4D6; Google Scholar
                 </a>
             </div>
         </div>
@@ -233,13 +237,14 @@
         <div class="shooting-star"></div>
         <div class="shooting-star"></div>
         <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
         <!-- About Me -->
         <div id="about-me" class="section">
-            <h2>About Me</h2>
+            <h2 style="color: white;">About Me</h2>
             <div class="about-me">
                 <div>
                     <p>
@@ -259,6 +264,7 @@
                 <li><a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">“It’s All About US vs THEM!”: Comparing Chinese Populist Discourses on Weibo and Twitter.</a></li>
                 <li><a href="https://arxiv.org/abs/2408.03828" target="_blank">More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure.</a></li>
             </ul>
+            <p>For more updates on my publications, you can visit my <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
         </div>
 
         <!-- News -->
@@ -270,30 +276,36 @@
                     I gave a talk at NetPLACE titled “Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media.” The presentation was followed by a discussion on integrating theory and methodology in computational social science research.
                     <br>For more information, visit: <a href="https://sites.google.com/view/netplace/blog/blogpost-040" target="_blank">NetPLACE Blog</a>.
                 </div>
-                <li onclick="toggleDescription('desc2')">Talk at DM3L Symposium 2024</li>
+
+                <li onclick="toggleDescription('desc2')">Talk at Department of Mathematical Modelling and Machine Learning (DM3L) Inaugural Symposium 2024, University of Zurich, Switzerland</li>
                 <div id="desc2" class="description">
                     I gave a lightning talk titled “Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media.”
                 </div>
+
                 <li onclick="toggleDescription('desc3')">Talk at NetSci 2024, Québec, Canada</li>
                 <div id="desc3" class="description">
                     I presented the first work of my PhD titled “Measuring Hierarchical Echo Chambers of Brazilian Political Communities.”
                     <br>You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">arXiv</a>.
                 </div>
-                <li onclick="toggleDescription('desc4')">Talk at IC2S2 2023, Copenhagen, Denmark</li>
+
+                <li onclick="toggleDescription('desc4')">Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</li>
                 <div id="desc4" class="description">
                     I presented my Master’s work titled “One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter.”
                     <br>You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Social Media + Society</a>.
                 </div>
-                <li onclick="toggleDescription('desc5')">Talk at ECREA 2023, Berlin, Germany</li>
+
+                <li onclick="toggleDescription('desc5')">Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</li>
                 <div id="desc5" class="description">
                     I presented an in-progress work titled “Untangling the Spread of Political Incivility on Twitter: An Examination of Contagion Dynamics in Networked Communities.”
                 </div>
-                <li onclick="toggleDescription('desc6')">Summer Institute in Computational Social Science 2023, Edinburgh</li>
+
+                <li onclick="toggleDescription('desc6')">Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</li>
                 <div id="desc6" class="description">
                     I was thrilled to attend the Summer Institute in Computational Social Science in Edinburgh during the summer of 2023.
                     <br><img src="summer_school_SICSS.jpg" alt="SICSS Photo">
                 </div>
-                <li onclick="toggleDescription('desc7')">Summer School on Political Communication 2023, Amsterdam</li>
+
+                <li onclick="toggleDescription('desc7')">Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</li>
                 <div id="desc7" class="description">
                     I was thrilled to attend the Summer School of the Standing Group on Political Communication in Amsterdam during the summer of 2023.
                     <br><img src="summer_school_PolCom.jpg" alt="Political Communication Photo">

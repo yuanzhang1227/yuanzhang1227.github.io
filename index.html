@@ -87,35 +87,39 @@
             position: absolute;
             top: -50px;
             left: -50px;
-            width: 8px;
-            height: 8px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.9), transparent);
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 1), transparent);
             border-radius: 50%;
-            animation: shooting 2s linear infinite;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: shooting 1.5s linear infinite;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
         }
 
         @keyframes shooting {
             0% {
-                transform: translateX(0) translateY(0) scale(1.2);
+                transform: translateX(0) translateY(0) scale(1.5);
                 opacity: 1;
             }
             100% {
-                transform: translateX(800px) translateY(300px) scale(0.5);
+                transform: translateX(1000px) translateY(500px) scale(0.5);
                 opacity: 0;
             }
         }
 
         .shooting-star:nth-child(2) {
-            animation-delay: 0.5s;
+            animation-delay: 0.3s;
         }
 
         .shooting-star:nth-child(3) {
-            animation-delay: 1s;
+            animation-delay: 0.6s;
         }
 
         .shooting-star:nth-child(4) {
-            animation-delay: 1.5s;
+            animation-delay: 0.9s;
+        }
+
+        .shooting-star:nth-child(5) {
+            animation-delay: 1.2s;
         }
 
         /* Main Content */
@@ -208,19 +212,19 @@
             <p>Zurich, Switzerland &#x1F4CD;</p>
             <div class="contact-icons">
                 <a href="mailto:y.zhang@ikmz.uzh.ch">
-                    &#x2709; y.zhang@ikmz.uzh.ch
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Email_icon.png" alt="Email" style="width: 20px; vertical-align: middle;"> y.zhang@ikmz.uzh.ch
                 </a>
                 <a href="https://x.com/Yuan_Z1227" target="_blank">
-                    &#x1F426; @Yuan_Z1227
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/X_logo.jpg" alt="X" style="width: 20px; vertical-align: middle;"> @Yuan_Z1227
                 </a>
                 <a href="https://www.linkedin.com/in/yuan-zhang-9b5990194/" target="_blank">
-                    &#x1F4C8; LinkedIn
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width: 20px; vertical-align: middle;"> LinkedIn
                 </a>
                 <a href="https://github.com/yuanzhang1227" target="_blank">
-                    &#x1F4BB; GitHub
+                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 20px; vertical-align: middle;"> GitHub
                 </a>
                 <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank">
-                    &#x1F4D6; Google Scholar
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" style="width: 20px; vertical-align: middle;"> Google Scholar 
                 </a>
             </div>
         </div>
@@ -244,7 +248,7 @@
     <div class="main-content">
         <!-- About Me -->
         <div id="about-me" class="section">
-            <h2 style="color: white;">About Me</h2>
+            <h2 style="color: white; text-decoration: none; border-bottom: none;">About Me</h2>
             <div class="about-me">
                 <div>
                     <p>

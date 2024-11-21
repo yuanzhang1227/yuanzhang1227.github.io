@@ -143,13 +143,13 @@
         /* Shooting Stars */
         .shooting-star {
             position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 10px;
-            height: 10px;
+            top: calc(-10px + 100vh * var(--random-top));
+            left: calc(-50px + 100vw * var(--random-left));
+            width: var(--star-size);
+            height: var(--star-size);
             background: radial-gradient(circle, rgba(255, 255, 255, 1), transparent);
             border-radius: 50%;
-            animation: shooting 1.5s linear infinite;
+            animation: shooting var(--animation-duration) linear infinite;
             box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
         }
 
@@ -164,21 +164,16 @@
             }
         }
 
-        .shooting-star:nth-child(2) {
-            animation-delay: 0.3s;
-        }
+        <div class="shooting-star" style="--random-top: 0.1; --random-left: 0.2; --star-size: 5px; --animation-duration: 4s;"></div>
 
-        .shooting-star:nth-child(3) {
-            animation-delay: 0.6s;
-        }
+        <div class="shooting-star" style="--random-top: 0.4; --random-left: 0.1; --star-size: 8px; --animation-duration: 6s;"></div>
 
-        .shooting-star:nth-child(4) {
-            animation-delay: 0.9s;
-        }
+        <div class="shooting-star" style="--random-top: 0.7; --random-left: 0.5; --star-size: 6px; --animation-duration: 5.5s;"></div>
 
-        .shooting-star:nth-child(5) {
-            animation-delay: 1.2s;
-        }
+        <div class="shooting-star" style="--random-top: 0.3; --random-left: 0.7; --star-size: 7px; --animation-duration: 7s;"></div>
+
+        <div class="shooting-star" style="--random-top: 0.5; --random-left: 0.9; --star-size: 10px; --animation-duration: 6.5s;"></div>
+
 
         /* Main Content */
         .main-content {
@@ -309,7 +304,7 @@
             <h2 style="color: white; text-decoration: none; border-bottom: none;">About Me</h2>
             <div class="about-me">
                 <div>
-                    <p>
+                    <p style="line-height: 1.8; text-align: justify;">
                         I am a Ph.D. student at the University of Zurich (UZH), advised by Prof. Frank Esser (Department of Communication Science and Media Research, University of Zurich), Prof. Laia Castro Herrero (Department of Political Science, University of Barcelona), and Prof. Alexandre Bovet (Department of Mathematical Modelling and Machine Learning & Digital Society Initiative, University of Zurich).<br><br>
                         Prior to my Ph.D., I received an MSc in Social Data Science from the University of Oxford, an MSc in Political Science and Political Economy from the London School of Economics, and a BSc in Economics from Yunnan University.<br><br>
                         My research interests focus on leveraging computational tools and statistical modeling to understand online human behavior. My PhD investigates the information structures on social media and their impact on political communication.
@@ -321,54 +316,54 @@
 
         <!-- Publications -->
         <div id="publications" class="section">
-            <h2>Publications</h2>
-            <ul>
+            <h2 style="line-height: 1.8; text-align: left;">Publications</h2>
+            <ul style="line-height: 1.8; text-align: left;">
                 <li><a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Zhang, Y., & Schroeder, R. (2024). “It’s All About US vs THEM!”: Comparing Chinese Populist Discourses on Weibo and Twitter. Social Media + Society, 10(1), 20563051241229659.</a></li>
                 <li><a href="https://arxiv.org/abs/2408.03828" target="_blank">Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.</a></li>
             </ul>
-            <p>For more updates on my publications, you can visit my <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
+            <p style="line-height: 1.8; text-align: left;">For more updates on my publications, you can visit my <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
         </div>
 
         <!-- News -->
         <div id="news" class="section">
-            <h2>News</h2>
-            <ul>
+            <h2 style="line-height: 1.8; text-align: left;">News</h2>
+            <ul style="line-height: 1.8; text-align: left;">
                 <li onclick="toggleDescription('desc1')">Talk at NetPLACE, 14th November, 2024</li>
-                <div id="desc1" class="description" style="color: #cccccc;">
+                <div id="desc1" class="description" style="line-height: 1.5; text-align: left; color: #cccccc;">
                     I gave a talk at NetPLACE titled “Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media.” The presentation was followed by a discussion on integrating theory and methodology in computational social science research.
                     <br>For more information, visit: <a href="https://sites.google.com/view/netplace/blog/blogpost-040" target="_blank">NetPLACE Blog</a>.
                 </div>
 
                 <li onclick="toggleDescription('desc2')">Talk at Department of Mathematical Modelling and Machine Learning (DM3L) Inaugural Symposium 2024, University of Zurich, Switzerland</li>
-                <div id="desc2" class="description" style="color: #cccccc;">
+                <div id="desc2" class="description" style="line-height: 1.5; text-align: left; color: #cccccc;">
                     I gave a lightning talk titled “Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media.”
                 </div>
 
                 <li onclick="toggleDescription('desc3')">Talk at NetSci 2024, Québec, Canada</li>
-                <div id="desc3" class="description" style="color: #cccccc;">
+                <div id="desc3" class="description" style="line-height: 1.5; text-align: left; color: #cccccc;">
                     I presented the first work of my PhD titled “Measuring Hierarchical Echo Chambers of Brazilian Political Communities.”
                     <br>You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">arXiv</a>.
                 </div>
 
                 <li onclick="toggleDescription('desc4')">Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</li>
-                <div id="desc4" class="description" style="color: #cccccc;">
+                <div id="desc4" class="description" style="line-height: 1.5; text-align: left; color: #cccccc;">
                     I presented my Master’s work titled “One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter.”
                     <br>You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Social Media + Society</a>.
                 </div>
 
                 <li onclick="toggleDescription('desc5')">Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</li>
-                <div id="desc5" class="description" style="color: #cccccc;">
+                <div id="desc5" class="description" style="line-height: 1.5; text-align: left; color: #cccccc;">
                     I presented an in-progress work titled “Untangling the Spread of Political Incivility on Twitter: An Examination of Contagion Dynamics in Networked Communities.”
                 </div>
 
                 <li onclick="toggleDescription('desc6')">Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</li>
-                <div id="desc6" class="description" style="color: #cccccc;">
+                <div id="desc6" class="description" style="line-height: 1.5; text-align: left; color: #cccccc;">
                     I was thrilled to attend the Summer Institute in Computational Social Science in Edinburgh during the summer of 2023.
                     <br><img src="summer_school_SICSS.jpg" alt="SICSS Photo" style="width: 150px; height: auto;">
                 </div>
 
                 <li onclick="toggleDescription('desc7')">Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</li>
-                <div id="desc7" class="description" style="color: #cccccc;">
+                <div id="desc7" class="description" style="line-height: 1.5; text-align: left; color: #cccccc;">
                     I was thrilled to attend the Summer School of the Standing Group on Political Communication in Amsterdam during the summer of 2023.
                     <br><img src="summer_school_PolCom.jpg" alt="Political Communication Photo" style="width: 150px; height: auto;">
                 </div>

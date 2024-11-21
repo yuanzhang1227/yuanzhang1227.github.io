@@ -19,15 +19,57 @@
             position: relative;
             overflow: hidden;
             display: flex;
-            flex-direction: column;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
         }
 
+        /* Contact Information */
+        .contact-info {
+            flex: 1;
+            max-width: 50%;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 1.2em;
+        }
+
+        .contact-info a {
+            color: #ff8c00;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: #ff00ff;
+        }
+
+        .contact-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .contact-icons a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .contact-icons a img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        /* Navigation */
         .nav-links {
             display: flex;
-            gap: 20px;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
         }
 
         .nav-links a {
@@ -65,33 +107,12 @@
             }
         }
 
-        /* Top Section Content */
-        .left-content {
-            text-align: center;
+        .shooting-star:nth-child(2) {
+            animation-delay: 1s;
         }
 
-        .left-content h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-
-        .left-content p {
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
-
-        /* About Me Section */
-        .about-me {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .about-me img {
-            width: 300px;
-            border-radius: 10px;
-            border: 2px solid #ff8c00;
+        .shooting-star:nth-child(3) {
+            animation-delay: 2s;
         }
 
         /* Main Content */
@@ -137,6 +158,20 @@
             font-size: 0.9em;
         }
 
+        /* About Me Section */
+        .about-me {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .about-me img {
+            width: 300px;
+            border-radius: 10px;
+            border: 2px solid #ff8c00;
+        }
+
         .footer {
             text-align: center;
             padding: 20px;
@@ -161,6 +196,32 @@
 <body>
     <!-- Top Section -->
     <div class="top-section">
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h1>Yuan Zhang</h1>
+            <p>PhD student at University of Zurich</p>
+            <p>Interdisciplinary researcher on computational social science</p>
+            <p>Zurich, Switzerland &#x1F4CD;</p>
+            <div class="contact-icons">
+                <a href="mailto:y.zhang@ikmz.uzh.ch">
+                    <img src="email_icon.png" alt="Email Icon"> y.zhang@ikmz.uzh.ch
+                </a>
+                <a href="https://x.com/Yuan_Z1227" target="_blank">
+                    <img src="x_icon.png" alt="X Icon"> @Yuan_Z1227
+                </a>
+                <a href="https://www.linkedin.com/in/yuan-zhang-9b5990194/" target="_blank">
+                    <img src="linkedin_icon.png" alt="LinkedIn Icon"> LinkedIn
+                </a>
+                <a href="https://github.com/yuanzhang1227" target="_blank">
+                    <img src="github_icon.png" alt="GitHub Icon"> GitHub
+                </a>
+                <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank">
+                    <img src="scholar_icon.png" alt="Google Scholar Icon"> Google Scholar
+                </a>
+            </div>
+        </div>
+
+        <!-- Navigation -->
         <div class="nav-links">
             <a href="#resume">Resume</a>
             <a href="#publications">Publications</a>
@@ -168,12 +229,10 @@
             <a href="#blog">Blog</a>
         </div>
 
-        <div class="left-content">
-            <h1>Yuan Zhang</h1>
-            <p>PhD student at University of Zurich</p>
-            <p>Interdisciplinary researcher on computational social science</p>
-            <p>Zurich, Switzerland &#x1F4CD;</p>
-        </div>
+        <!-- Shooting Stars -->
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
+        <div class="shooting-star"></div>
     </div>
 
     <!-- Main Content -->

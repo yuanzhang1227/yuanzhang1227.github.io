@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Yuan Zhang's Personal Homepage</title>
     <style>
-        /* Add these new rules at the top of your CSS */
         html {
             -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
@@ -19,9 +18,31 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        @media (max-width: 768px) {
+        /* Custom cursor everywhere */
+        html, body, a, button, li, 
+        .nav-links a, 
+        .contact-icons a, 
+        #showMoreBtn, 
+        #showMorePubsBtn, 
+        #showMoreBtnAwards, 
+        .description a, 
+        .description a:hover {
+            cursor: url('cursor.cur'), auto !important;
+        }
+
+        /* Fixed desktop width for all screens */
+        .main-content {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1200px) {
+            body, html {
+                overflow-x: auto;
+            }
             .main-content {
-                min-width: 768px;
+                min-width: 1200px;
+                width: 1200px;
                 overflow-x: auto;
             }
         }

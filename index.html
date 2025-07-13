@@ -228,32 +228,51 @@
 
         /* Snowflakes */
         .snowflake {
-            position: fixed;
-            top: -10px;
-            z-index: 1;
-            pointer-events: none;
-            color: white;
-            font-size: 1em;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
-            animation: snowfall linear infinite;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+                position: fixed;
+                top: -10px;
+                z-index: 1;
+                pointer-events: none;
+                color: white;
+                font-size: 1em;
+                text-shadow: 0 0 5px rgba(255,255,255,0.7);
+                opacity: 0.8;
+                user-select: none;
+                will-change: transform, opacity;
+                transition: none;
+                animation: snowfall 12s linear infinite;
+                /* left is set via JS for 8-space indent */
         }
 
         @keyframes snowfall {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0.8;
-            }
-            70% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(100vh) translateX(15vw) rotate(360deg);
-                opacity: 0;
-            }
+                0% {
+                        transform: translateY(0) translateX(0) rotate(0deg);
+                        opacity: 0;
+                }
+                10% {
+                        opacity: 0.8;
+                }
+                80% {
+                        opacity: 0.7;
+                }
+                100% {
+                        transform: translateY(100vh) translateX(15vw) rotate(360deg);
+                        opacity: 0;
+                }
         }
 
+        #snowflakes-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                pointer-events: none;
+                z-index: 1;
+                opacity: 1;
+                transition: none;
+        }
+
+        
         /* Responsive adjustments */
         @media (max-width: 1250px) {
             body {
@@ -573,65 +592,60 @@
             // Improved snowflake creation without flashing
             function createSnowflakes() {
                 const container = document.getElementById('snowflakes-container');
+                
+                // PREVENT FLASHING by setting these BEFORE creating elements
+                container.style.opacity = '0';
+                container.style.willChange = 'opacity';
+                container.style.visibility = 'hidden';
+                
                 const snowflakeCount = 50;
                 const snowflakeChars = ['❄', '❅', '❆', '✻', '✼', '✽', '✾', '✿', '❀', '❁'];
-                
+
                 // Create all snowflakes first (hidden)
                 for (let i = 0; i < snowflakeCount; i++) {
                     const snowflake = document.createElement('div');
                     snowflake.className = 'snowflake';
-                    snowflake.style.opacity = '0'; // Start invisible
                     
-                    // Random properties
+                    // Randomize properties
                     const size = 0.5 + Math.random() * 1.5;
                     const left = Math.random() * 100;
                     const delay = Math.random() * 15;
                     const duration = 8 + Math.random() * 15;
                     const char = snowflakeChars[Math.floor(Math.random() * snowflakeChars.length)];
-                    const opacity = 0.5 + Math.random() * 0.5;
-                    const sway = 5 + Math.random() * 10;
-                    
+
+                    // Apply styles
+                    Object.assign(snowflake.style, {
+                        left: `${left}vw`,
+                        fontSize: `${size}em`,
+                        animationDuration: `${duration}s`,
+                        animationDelay: `${delay}s`,
+                        opacity: '0',
+                        willChange: 'opacity, transform'
+                    });
                     snowflake.textContent = char;
-                    snowflake.style.left = `${left}vw`;
-                    snowflake.style.fontSize = `${size}em`;
-                    snowflake.style.animationDuration = `${duration}s`;
-                    snowflake.style.animationDelay = `${delay}s`;
-                    snowflake.style.opacity = '0';
-                    snowflake.style.animationName = `snowfall-${sway}`;
-                    
-                    // Create unique animation
-                    const style = document.createElement('style');
-                    style.textContent = `
-                        @keyframes snowfall-${sway} {
-                            0% {
-                                transform: translateY(0) translateX(0) rotate(0deg);
-                                opacity: ${opacity};
-                            }
-                            70% {
-                                opacity: 0.6;
-                            }
-                            100% {
-                                transform: translateY(100vh) translateX(15vw) rotate(360deg);
-                                opacity: 0;
-                            }
-                        }
-                    `;
-                    document.head.appendChild(style);
-                    
                     container.appendChild(snowflake);
                 }
-                
-                // After all snowflakes are created, fade them in smoothly
-                setTimeout(() => {
-                    container.style.transition = 'opacity 0.5s ease';
+
+                // FLASH-PROOF REVEAL SEQUENCE
+                requestAnimationFrame(() => {
+                    // First make container visible (still transparent)
+                    container.style.visibility = 'visible';
+                    
+                    // Then fade in container
+                    container.style.transition = 'opacity 1.2s ease-out';
                     container.style.opacity = '1';
-                    const snowflakes = container.querySelectorAll('.snowflake');
-                    snowflakes.forEach(flake => {
-                        flake.style.transition = 'opacity 0.5s ease';
-                        flake.style.opacity = '0.8';
-                    });
-                }, 100);
+                    
+                    // Finally fade in individual flakes
+                    setTimeout(() => {
+                        const snowflakes = container.querySelectorAll('.snowflake');
+                        snowflakes.forEach(flake => {
+                            flake.style.transition = 'opacity 1.5s ease-out';
+                            flake.style.opacity = (0.7 + Math.random() * 0.3).toFixed(2);
+                        });
+                    }, 200); // Slight delay after container fade starts
+                });
             }
+
 
             // Create snowflakes after a slight delay
             setTimeout(createSnowflakes, 300);

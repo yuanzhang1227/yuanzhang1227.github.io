@@ -2,25 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Yuan Zhang's Personal Homepage</title>
+    <style>
+        /* Add these new rules at the top of your CSS */
+        html {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            touch-action: manipulation;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                min-width: 768px;
+                overflow-x: auto;
+            }
+        }
+        
     <style>
         /* Updated CSS for the top section */
         /* Custom cursor implementation */
         html, body {
                 cursor: url('cursor.cur'), auto;
         }
-        
+
+        .description a,
+        .description a:hover {
+                cursor: default !important;
+        }
+
         a, button, li, 
         .nav-links a, 
         .contact-icons a, 
         #showMoreBtn, 
         #showMorePubsBtn, 
-        #showMoreBtnAwards,
-        .description a {
+        #showMoreBtnAwards {
                 cursor: default !important;
         }
-        
+
         a:hover, button:hover, 
         .nav-links a:hover, 
         .contact-icons a:hover, 

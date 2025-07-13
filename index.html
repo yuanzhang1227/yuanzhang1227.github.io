@@ -30,29 +30,18 @@
             cursor: url('cursor.cur'), auto !important;
         }
 
-        /* Fixed desktop width for all screens */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            overflow-x: auto; /* Allows horizontal scrolling on small devices */
-        }
-        
         .main-content {
-            width: 1200px; /* Your fixed width */
-            margin: 0 auto; /* Centers the content on larger screens */
-            position: relative;
+                width: 1200px;
+                margin: 0 auto;
+                transform-origin: top left;
         }
-        
+
         @media (max-width: 1200px) {
-            body {
-                overflow-x: auto; /* Ensures horizontal scrollbar appears */
-            }
-            .main-content {
-                min-width: 1200px; /* Prevents shrinking below 1200px */
-                margin-left: 0;
-                margin-right: 0;
-            }
+                .main-content {
+                        transform: scale(calc(100vw / 1200));
+                        width: 1200px;
+                        height: calc(100vh / (100vw / 1200));
+                }
         }
         
     <style>

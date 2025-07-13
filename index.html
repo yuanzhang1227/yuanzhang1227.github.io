@@ -31,19 +31,27 @@
         }
 
         /* Fixed desktop width for all screens */
-        .main-content {
-            width: 1200px;
-            margin: 0 auto;
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: auto; /* Allows horizontal scrolling on small devices */
         }
-
+        
+        .main-content {
+            width: 1200px; /* Your fixed width */
+            margin: 0 auto; /* Centers the content on larger screens */
+            position: relative;
+        }
+        
         @media (max-width: 1200px) {
-            body, html {
-                overflow-x: auto;
+            body {
+                overflow-x: auto; /* Ensures horizontal scrollbar appears */
             }
             .main-content {
-                min-width: 1200px;
-                width: 1200px;
-                overflow-x: auto;
+                min-width: 1200px; /* Prevents shrinking below 1200px */
+                margin-left: 0;
+                margin-right: 0;
             }
         }
         

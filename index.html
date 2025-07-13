@@ -47,7 +47,7 @@
             background: radial-gradient(circle, rgba(17,17,17,0.8) 40%, rgba(0,0,0,0.8) 100%);
             padding: 20px;
             border-bottom: 1px solid rgba(176, 190, 197, 0.3);
-            margin-bottom: 40px; /* Added to separate from About Me section */
+            margin-bottom: 40px;
         }
 
         /* Contact info section */
@@ -236,8 +236,8 @@
             font-size: 1em;
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
             animation: snowfall linear infinite;
-            opacity: 0.8;
-            user-select: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
 
         @keyframes snowfall {
@@ -263,9 +263,10 @@
     </style>
 </head>
 <body>
-    <!-- Snowflakes container -->
-    <div id="snowflakes-container"></div>
+    <!-- Snowflakes container - initially hidden -->
+    <div id="snowflakes-container" style="opacity:0;"></div>
 
+    <!-- Rest of your HTML remains exactly the same -->
     <!-- Top Section -->
     <div class="top-section">
         <!-- Contact Information -->
@@ -568,16 +569,18 @@
             } else {
                 blogBtn.style.display = 'none';
             }
-            
-            // Create realistic snowflakes
+
+            // Improved snowflake creation without flashing
             function createSnowflakes() {
                 const container = document.getElementById('snowflakes-container');
                 const snowflakeCount = 50;
                 const snowflakeChars = ['❄', '❅', '❆', '✻', '✼', '✽', '✾', '✿', '❀', '❁'];
                 
+                // Create all snowflakes first (hidden)
                 for (let i = 0; i < snowflakeCount; i++) {
                     const snowflake = document.createElement('div');
                     snowflake.className = 'snowflake';
+                    snowflake.style.opacity = '0'; // Start invisible
                     
                     // Random properties
                     const size = 0.5 + Math.random() * 1.5;
@@ -593,10 +596,10 @@
                     snowflake.style.fontSize = `${size}em`;
                     snowflake.style.animationDuration = `${duration}s`;
                     snowflake.style.animationDelay = `${delay}s`;
-                    snowflake.style.opacity = opacity;
+                    snowflake.style.opacity = '0';
                     snowflake.style.animationName = `snowfall-${sway}`;
                     
-                    // Create unique animation for each snowflake's sway
+                    // Create unique animation
                     const style = document.createElement('style');
                     style.textContent = `
                         @keyframes snowfall-${sway} {
@@ -604,11 +607,11 @@
                                 transform: translateY(0) translateX(0) rotate(0deg);
                                 opacity: ${opacity};
                             }
-                            50% {
-                                transform: translateX(${Math.random() > 0.5 ? sway : -sway}px);
+                            70% {
+                                opacity: 0.6;
                             }
                             100% {
-                                transform: translateY(100vh) translateX(${Math.random() > 0.5 ? sway : -sway}px) rotate(360deg);
+                                transform: translateY(100vh) translateX(15vw) rotate(360deg);
                                 opacity: 0;
                             }
                         }
@@ -617,9 +620,21 @@
                     
                     container.appendChild(snowflake);
                 }
+                
+                // After all snowflakes are created, fade them in smoothly
+                setTimeout(() => {
+                    container.style.transition = 'opacity 0.5s ease';
+                    container.style.opacity = '1';
+                    const snowflakes = container.querySelectorAll('.snowflake');
+                    snowflakes.forEach(flake => {
+                        flake.style.transition = 'opacity 0.5s ease';
+                        flake.style.opacity = '0.8';
+                    });
+                }, 100);
             }
 
-            createSnowflakes();
+            // Create snowflakes after a slight delay
+            setTimeout(createSnowflakes, 300);
         });
     </script>
 </body>

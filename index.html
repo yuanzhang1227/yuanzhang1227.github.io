@@ -425,21 +425,21 @@
                                 Zhang, Y., Amsler, M., Herrero, L. C., Esser, F., & Bovet, A. (2025). Quantifying the Spread of Online Incivility in Brazilian Politics. Proceedings of the International AAAI Conference on Web and Social Media, 19, 2241-2259.
                         </li>
                         <div id="pub1" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">Proceedings</a>.
+                                You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank style="color: #cccccc;">AAAI ICWSM Proceedings</a>.
                         </div>
                         
                         <li onclick="toggleDescription('pub2')">
                                 Zhang, Y., & Schroeder, R. (2024). "It's All About US vs THEM!": Comparing Chinese Populist Discourses on Weibo and Twitter. Social Media + Society, 10(1), 20563051241229659.
                         </li>
                         <div id="pub2" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Social Media + Society</a>.
+                                You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank style="color: #cccccc;">Social Media + Society</a>.
                         </div>
                         
                         <li onclick="toggleDescription('pub3')">
                                 Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.
                         </li>
                         <div id="pub3" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">arXiv</a>.
+                                You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank style="color: #cccccc;">arXiv</a>.
                         </div>
 
                         <!-- Additional publications would go here -->
@@ -497,7 +497,7 @@
                         <li onclick="toggleDescription('desc1')">Talk at The International AAAI Conference on Web and Social Media (ICWSM), 23rd June, 2025</li>
                         <div id="desc1" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
                                 I presented my recent published work titled “Quantifying the Spread of Online Incivility in Brazilian Politics.”
-                                <br>You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">Proceedings</a>.
+                                <br>You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank style="color: #cccccc;">AAAI ICWSM Proceedings</a>.
                         </div>
                         
                         <li onclick="toggleDescription('desc2')">Talk at The International Communication Association (ICA), Computational Methods Session, 15th June, 2025</li>
@@ -513,7 +513,7 @@
                         <li onclick="toggleDescription('desc4')">Talk at NetPLACE, 14th November, 2024</li>
                         <div id="desc4" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
                                 I gave a talk at NetPLACE titled “Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media.” The presentation was followed by a discussion on integrating theory and methodology in computational social science research.
-                                <br>For more information, visit: <a href="https://sites.google.com/view/netplace/blog/blogpost-040" target="_blank">NetPLACE Blog</a>.
+                                <br>For more information, visit: <a href="https://sites.google.com/view/netplace/blog/blogpost-040" target="_blank style="color: #cccccc;">NetPLACE Blog</a>.
                         </div>
 
                         <li onclick="toggleDescription('desc5')">Talk at Department of Mathematical Modelling and Machine Learning (DM3L) Inaugural Symposium 2024, University of Zurich, Switzerland</li>
@@ -635,7 +635,7 @@
         </script>
 
         <!-- Personal Blog -->
-        <div id="personal blog" class="section">
+        <div id="personal-blog" class="section">
                 <h2 style="line-height: 1.8; text-align: left; margin: 0 20px;">Personal Blog</h2>
                 <ul id="blog-list" style="line-height: 1.8; text-align: left; margin: 0 20px;">
                         <!-- First item always visible -->
@@ -654,8 +654,7 @@
                                 </li>
                         </span>
                 </ul>
-                <!-- Button will be hidden by JavaScript since less than 5 items -->
-                <button id="showMoreBlogBtn" style="margin-left: 20px; background-color: #f0f0f0; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; cursor: pointer; display: none;">Show More</button>
+                <!-- Button will only be inserted by JavaScript if needed -->
         </div>
 
         <style>
@@ -665,29 +664,39 @@
         </style>
 
         <script>
-                // Blog section show more functionality
+                // Blog section functionality
                 document.addEventListener("DOMContentLoaded", function() {
-                        const blogItems = document.querySelectorAll('#blog-list li');
-                        const showMoreBlogBtn = document.getElementById('showMoreBlogBtn');
+                        const blogList = document.getElementById('blog-list');
+                        const blogItems = blogList.querySelectorAll('li');
                         const expandableBlog = document.querySelector('.expandable-blog');
                         
-                        // Only show button if there are hidden items (in expandable section)
-                        if (expandableBlog && expandableBlog.querySelectorAll('li').length > 0) {
-                                showMoreBlogBtn.style.display = 'inline-block';
+                        // Only create button if there are 5+ items total
+                        if (blogItems.length >= 5 && expandableBlog) {
+                                // Create and insert the button
+                                const showMoreBtn = document.createElement('button');
+                                showMoreBtn.id = 'showMoreBlogBtn';
+                                showMoreBtn.textContent = 'Show More';
+                                showMoreBtn.style.cssText = 'margin-left: 20px; background-color: #f0f0f0; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; cursor: pointer;';
                                 
-                                showMoreBlogBtn.onclick = function() {
+                                blogList.parentNode.insertBefore(showMoreBtn, blogList.nextSibling);
+                                
+                                // Button functionality
+                                showMoreBtn.onclick = function() {
                                         if (expandableBlog.style.display === "block") {
                                                 expandableBlog.style.display = "none";
-                                                showMoreBlogBtn.textContent = "Show More";
+                                                showMoreBtn.textContent = "Show More";
                                         } else {
                                                 expandableBlog.style.display = "block";
-                                                showMoreBlogBtn.textContent = "Show Less";
+                                                showMoreBtn.textContent = "Show Less";
                                         }
                                 };
+                        } else if (expandableBlog) {
+                                // If fewer than 5 items but has expandable content, show it
+                                expandableBlog.style.display = "block";
                         }
                 });
         </script>
-
+        
     </div>
     <footer style="text-align: center; margin-top: 40px; padding: 20px; border-top: 1px solid #333; color: #cccccc;">
         <p>&copy; Updated Jul 2025 | Yuan Zhang</p>

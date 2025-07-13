@@ -6,6 +6,10 @@
     <title>Yuan Zhang's Personal Homepage</title>
     <style>
         /* Updated CSS for the top section */
+        html, body, a, button {
+            cursor: url('cursor.cur'), auto;
+        }
+        
         .top-section {
             height: 300px;
             background: url('https://en.wikipedia.org/wiki/Mountain#/media/File:Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg') no-repeat center center; /* Add the background image */
@@ -19,6 +23,7 @@
             padding: 20px;
             color: #fff; /* Ensure text remains visible */
         }
+        
 
         body {
             margin: 0;
@@ -136,6 +141,18 @@
             width: 20px;
             margin-right: 10px;
         }
+
+                /* ...other styles... */
+
+        .description a {
+            color: #cccccc !important;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .description a:hover {
+            color: #b0bec5 !important;
+        }
+
 
         /* Navigation */
         .nav-links {
@@ -425,21 +442,21 @@
                                 Zhang, Y., Amsler, M., Herrero, L. C., Esser, F., & Bovet, A. (2025). Quantifying the Spread of Online Incivility in Brazilian Politics. Proceedings of the International AAAI Conference on Web and Social Media, 19, 2241-2259.
                         </li>
                         <div id="pub1" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank style="color: #cccccc;">AAAI ICWSM Proceedings</a>.
+                                You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">AAAI ICWSM Proceedings</a>.
                         </div>
                         
                         <li onclick="toggleDescription('pub2')">
                                 Zhang, Y., & Schroeder, R. (2024). "It's All About US vs THEM!": Comparing Chinese Populist Discourses on Weibo and Twitter. Social Media + Society, 10(1), 20563051241229659.
                         </li>
                         <div id="pub2" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank style="color: #cccccc;">Social Media + Society</a>.
+                                You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Social Media + Society</a>.
                         </div>
                         
                         <li onclick="toggleDescription('pub3')">
                                 Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.
                         </li>
                         <div id="pub3" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank style="color: #cccccc;">arXiv</a>.
+                                You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">arXiv</a>.
                         </div>
 
                         <!-- Additional publications would go here -->
@@ -496,48 +513,48 @@
                         <!-- First 5 items always visible -->
                         <li onclick="toggleDescription('desc1')">Talk at The International AAAI Conference on Web and Social Media (ICWSM), 23rd June, 2025</li>
                         <div id="desc1" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                I presented my recent published work titled “Quantifying the Spread of Online Incivility in Brazilian Politics.”
-                                <br>You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank style="color: #cccccc;">AAAI ICWSM Proceedings</a>.
+                                I presented my recent published work titled "Quantifying the Spread of Online Incivility in Brazilian Politics."
+                                <br>You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">AAAI ICWSM Proceedings</a>.
                         </div>
                         
                         <li onclick="toggleDescription('desc2')">Talk at The International Communication Association (ICA), Computational Methods Session, 15th June, 2025</li>
                         <div id="desc2" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                I presented an in-progress work titled “The Dark Influence: Uncivil Online Political Influencers Increase Political Polarization on X.”
+                                I presented an in-progress work titled "The Dark Influence: Uncivil Online Political Influencers Increase Political Polarization on X."
                         </div>
                         
                         <li onclick="toggleDescription('desc3')">Talk at NetSci, 3th June, 2025</li>
                         <div id="desc3" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                I presented an in-progress work titled “Examining Cross-National Political Fragmentation Using Multi-Scale Community Detection.” 
+                                I presented an in-progress work titled "Examining Cross-National Political Fragmentation Using Multi-Scale Community Detection." 
                         </div> 
 
                         <li onclick="toggleDescription('desc4')">Talk at NetPLACE, 14th November, 2024</li>
                         <div id="desc4" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                I gave a talk at NetPLACE titled “Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media.” The presentation was followed by a discussion on integrating theory and methodology in computational social science research.
-                                <br>For more information, visit: <a href="https://sites.google.com/view/netplace/blog/blogpost-040" target="_blank style="color: #cccccc;">NetPLACE Blog</a>.
+                                I gave a talk at NetPLACE titled "Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media." The presentation was followed by a discussion on integrating theory and methodology in computational social science research.
+                                <br>For more information, visit: <a href="https://sites.google.com/view/netplace/blog/blogpost-040" target="_blank"">NetPLACE Blog</a>.
                         </div>
 
                         <li onclick="toggleDescription('desc5')">Talk at Department of Mathematical Modelling and Machine Learning (DM3L) Inaugural Symposium 2024, University of Zurich, Switzerland</li>
                         <div id="desc5" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                I gave a lightning talk titled “Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media.”
+                                I gave a lightning talk titled "Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media."
                         </div>
                         
                         <!-- All additional activities go here, hidden by default -->
                         <span class="expandable">
                                 <li onclick="toggleDescription('desc6')">Talk at NetSci 2024, Québec, Canada</li>
                                 <div id="desc6" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                        I presented the first work of my PhD titled “Measuring Hierarchical Echo Chambers of Brazilian Political Communities.”
+                                        I presented the first work of my PhD titled "Measuring Hierarchical Echo Chambers of Brazilian Political Communities."
                                         <br>You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">arXiv</a>.
                                 </div>
 
                                 <li onclick="toggleDescription('desc7')">Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</li>
                                 <div id="desc7" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                        I presented my Master’s work titled “One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter.”
+                                        I presented my Master's work titled "One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter."
                                         <br>You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Social Media + Society</a>.
                                 </div>
 
                                 <li onclick="toggleDescription('desc8')">Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</li>
                                 <div id="desc8" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                        I presented an in-progress work titled “Untangling the Spread of Political Incivility on Twitter: An Examination of Contagion Dynamics in Networked Communities.”
+                                        I presented an in-progress work titled "Untangling the Spread of Political Incivility on Twitter: An Examination of Contagion Dynamics in Networked Communities."
                                 </div>
 
                                 <li onclick="toggleDescription('desc9')">Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</li>
@@ -553,41 +570,45 @@
                                 </div>
                         </span>
                 </ul>
-                <button id="showMoreBtn" style="margin-left: 20px;">Show More</button>
+                <button id="showMoreBtn" style="margin-left: 20px; background-color: #f0f0f0; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Show More</button>
         </div>
 
-        <!-- Add to your existing <style> section (if not already present) -->
         <style>
                 .expandable {
                         display: none;
                 }
+                .description {
+                        display: none;
+                }
+                #showMoreBtn:hover {
+                        background-color: #e0e0e0;
+                }
         </style>
 
-        <!-- Add to your <script> section, or right before </body> -->
         <script>
                 // Toggle description for each activity
                 function toggleDescription(id) {
                         const desc = document.getElementById(id);
                         desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
                 }
+                
                 // Show/Hide expandable items
                 document.addEventListener("DOMContentLoaded", function() {
                         const showMoreBtn = document.getElementById('showMoreBtn');
                         const expandable = document.querySelector('.expandable');
                         if (showMoreBtn && expandable) {
                                 showMoreBtn.onclick = function() {
-                                        if (expandable.style.display === "inline") {
+                                        if (expandable.style.display === "block") {
                                                 expandable.style.display = "none";
                                                 showMoreBtn.textContent = "Show More";
                                         } else {
-                                                expandable.style.display = "inline";
+                                                expandable.style.display = "block";
                                                 showMoreBtn.textContent = "Show Less";
                                         }
                                 };
                         }
                 });
         </script>
-
 
         
         
@@ -644,17 +665,12 @@
                                         Three Steps for Webscraping Using Python 
                                 </a>
                         </li>
-                        
-                        <!-- Additional items would go here in expandable section -->
-                        <span class="expandable-blog">
-                                <li>
-                                        <a href="https://medium.com/@yuanzhang_46729" target="_blank" style="color: #cccccc;">
-                                                See all my articles on Medium
-                                        </a>
-                                </li>
-                        </span>
                 </ul>
-                <!-- Button will only be inserted by JavaScript if needed -->
+                <p style="line-height: 1.8; text-align: left; margin: 20px 20px 0 20px; color: #b0b0b0;">
+                        You can check updates of articles on Medium
+                        <a href="https://medium.com/@yuanzhang_46729" target="_blank" style="color: #b0b0b0;">
+                        </a>.
+                </p>
         </div>
 
         <style>

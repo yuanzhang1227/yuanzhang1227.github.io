@@ -11,9 +11,20 @@
             background-size: cover;
             color: #fff;
             margin: 0;
-            cursor: url('cursor.cur'), auto;
             overflow-x: hidden;
             min-height: 100vh;
+        }
+
+        /* Custom cursor everywhere */
+        html, body, a, button, li, 
+        .nav-links a, 
+        .contact-icons a, 
+        #showMoreBtn, 
+        #showMorePubsBtn, 
+        #showMoreBtnAwards, 
+        .description a, 
+        .description a:hover {
+            cursor: url('cursor.cur'), auto !important;
         }
 
         /* Main containers */
@@ -27,7 +38,7 @@
             z-index: 10;
         }
 
-        /* Top section styling */
+        /* Top section styling - added margin-bottom */
         .top-section {
             display: flex;
             justify-content: space-between;
@@ -36,6 +47,7 @@
             background: radial-gradient(circle, rgba(17,17,17,0.8) 40%, rgba(0,0,0,0.8) 100%);
             padding: 20px;
             border-bottom: 1px solid rgba(176, 190, 197, 0.3);
+            margin-bottom: 40px; /* Added to separate from About Me section */
         }
 
         /* Contact info section */
@@ -372,6 +384,34 @@
                 <div id="desc5" class="description">
                     I gave a lightning talk titled "Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media."
                 </div>
+                
+                <!-- Hidden items that will show when clicking "Show More" -->
+                <li class="expandable" onclick="toggleDescription('desc6')">Talk at NetSci 2024, Québec, Canada</li>
+                <div id="desc6" class="description">
+                    I presented the first work of my PhD titled "Measuring Hierarchical Echo Chambers of Brazilian Political Communities."
+                    <br>You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">arXiv</a>.
+                </div>
+
+                <li class="expandable" onclick="toggleDescription('desc7')">Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</li>
+                <div id="desc7" class="description">
+                    I presented my Master's work titled "One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter."
+                    <br>You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Social Media + Society</a>.
+                </div>
+
+                <li class="expandable" onclick="toggleDescription('desc8')">Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</li>
+                <div id="desc8" class="description">
+                    I presented an in-progress work titled "Untangling the Spread of Political Incivility on Twitter: An Examination of Contagion Dynamics in Networked Communities."
+                </div>
+
+                <li class="expandable" onclick="toggleDescription('desc9')">Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</li>
+                <div id="desc9" class="description">
+                    I was thrilled to attend the Summer Institute in Computational Social Science in Edinburgh during the summer of 2023.
+                </div>
+
+                <li class="expandable" onclick="toggleDescription('desc10')">Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</li>
+                <div id="desc10" class="description">
+                    I was thrilled to attend the Summer School of the Standing Group on Political Communication in Amsterdam during the summer of 2023.
+                </div>
             </ul>
             <button id="showMoreBtn">Show More</button>
         </div>
@@ -385,6 +425,10 @@
                 <li>Guoyu Fang Scholarship, Yunnan University</li>
                 <li>Provincial First Prize Award, "Challenge Cup" National Academic Competition</li>
                 <li>Provincial Government Scholarship, Yunnan Province</li>
+                <!-- Hidden awards that will show when clicking "Show More" -->
+                <li class="expandable">National Scholarship, Ministry of Education of the People's Republic of China</li>
+                <li class="expandable">Outstanding Graduate Award, Yunnan University</li>
+                <li class="expandable">First Prize in National Mathematics Competition for College Students</li>
             </ul>
             <button id="showMoreBtnAwards">Show More</button>
         </div>
@@ -398,7 +442,19 @@
                         Three Steps for Webscraping Using Python 
                     </a>
                 </li>
+                <!-- Hidden blog items that will show when clicking "Show More" -->
+                <li class="expandable">
+                    <a href="https://medium.com/@yuanzhang_46729/understanding-political-polarization-through-twitter-networks" target="_blank">
+                        Understanding Political Polarization Through Twitter Networks
+                    </a>
+                </li>
+                <li class="expandable">
+                    <a href="https://medium.com/@yuanzhang_46729/machine-learning-for-social-science-research" target="_blank">
+                        Machine Learning for Social Science Research
+                    </a>
+                </li>
             </ul>
+            <button id="showMoreBlogBtn" style="display: none;">Show More</button>
             <p>
                 For more updates of articles on 
                 <a href="https://medium.com/@yuanzhang_46729" target="_blank">Medium</a>.
@@ -423,33 +479,96 @@
             // Activities section
             const showMoreBtn = document.getElementById('showMoreBtn');
             if (showMoreBtn) {
+                const expandableItems = document.querySelectorAll('#activities .expandable');
+                
+                // Initially hide expandable items
+                expandableItems.forEach(item => {
+                    item.style.display = 'none';
+                });
+                
                 showMoreBtn.addEventListener('click', function() {
-                    const hiddenItems = document.querySelectorAll('.expandable');
-                    if (hiddenItems.length > 0) {
-                        const isExpanded = hiddenItems[0].style.display === 'block';
-                        hiddenItems.forEach(item => {
-                            item.style.display = isExpanded ? 'none' : 'block';
-                        });
-                        showMoreBtn.textContent = isExpanded ? 'Show More' : 'Show Less';
-                    }
+                    const isExpanded = expandableItems[0].style.display === 'block';
+                    
+                    expandableItems.forEach(item => {
+                        item.style.display = isExpanded ? 'none' : 'block';
+                    });
+                    
+                    showMoreBtn.textContent = isExpanded ? 'Show More' : 'Show Less';
                 });
             }
 
             // Awards section
             const awardsBtn = document.getElementById('showMoreBtnAwards');
             if (awardsBtn) {
-                awardsBtn.addEventListener('click', function() {
-                    const hiddenAwards = document.querySelectorAll('#awards .expandable');
-                    if (hiddenAwards.length > 0) {
-                        const isExpanded = hiddenAwards[0].style.display === 'block';
-                        hiddenAwards.forEach(item => {
-                            item.style.display = isExpanded ? 'none' : 'block';
+                const expandableAwards = document.querySelectorAll('#awards .expandable');
+                let isExpanded = false;
+                
+                // Only proceed if there are expandable items
+                if (expandableAwards.length > 0) {
+                    // Initially hide expandable awards
+                    expandableAwards.forEach(item => {
+                        item.style.display = 'none';
+                    });
+                    
+                    awardsBtn.addEventListener('click', function() {
+                        isExpanded = !isExpanded;
+                        
+                        expandableAwards.forEach(item => {
+                            item.style.display = isExpanded ? 'list-item' : 'none';
                         });
-                        awardsBtn.textContent = isExpanded ? 'Show More' : 'Show Less';
-                    }
-                });
+                        
+                        awardsBtn.textContent = isExpanded ? 'Show Less' : 'Show More';
+                    });
+                } else {
+                    // Hide button if no expandable items exist
+                    awardsBtn.style.display = 'none';
+                }
             }
 
+            // Blog section
+            const blogBtn = document.getElementById('showMoreBlogBtn');
+            const blogList = document.getElementById('blog-list');
+            const blogItems = blogList.querySelectorAll('li');
+            
+            // Remove the two articles if they exist
+            const articlesToRemove = [
+                'Understanding Political Polarization Through Twitter Networks',
+                'Machine Learning for Social Science Research'
+            ];
+            
+            blogItems.forEach(item => {
+                if (articlesToRemove.some(article => item.textContent.includes(article))) {
+                    item.remove();
+                }
+            });
+            
+            // Get updated list of items after removal
+            const updatedBlogItems = blogList.querySelectorAll('li');
+            
+            // Only show button if there are more than 5 items
+            if (updatedBlogItems.length > 5) {
+                const expandableBlogItems = Array.from(updatedBlogItems).slice(5);
+                
+                blogBtn.style.display = 'inline-block';
+                
+                // Initially hide expandable blog items
+                expandableBlogItems.forEach(item => {
+                    item.style.display = 'none';
+                });
+                
+                blogBtn.addEventListener('click', function() {
+                    const isExpanded = expandableBlogItems[0].style.display === 'block';
+                    
+                    expandableBlogItems.forEach(item => {
+                        item.style.display = isExpanded ? 'none' : 'list-item';
+                    });
+                    
+                    blogBtn.textContent = isExpanded ? 'Show More' : 'Show Less';
+                });
+            } else {
+                blogBtn.style.display = 'none';
+            }
+            
             // Create realistic snowflakes
             function createSnowflakes() {
                 const container = document.getElementById('snowflakes-container');

@@ -176,15 +176,22 @@
         }
 
         .description {
-            display: none;
-            margin: 10px 0 15px 20px;
-            padding: 10px 15px;
-            background: rgba(40, 40, 40, 0.7);
-            border-left: 3px solid #b0bec5;
-            border-radius: 0 5px 5px 0;
-            font-size: 0.97em;
-            color: #cccccc;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: 
+                        max-height 0.3s ease-out,
+                        opacity 0.3s ease-out;
+                margin: 10px 0 15px 20px;
+                padding: 0 15px;
+                background: rgba(40, 40, 40, 0.7);
+                border-left: 3px solid #b0bec5;
+                border-radius: 0 5px 5px 0;
+                font-size: 0.97em;
+                color: #cccccc;
+                will-change: max-height, opacity;
         }
+
 
         /* Buttons */
         button {
@@ -400,8 +407,6 @@
                 <li>Provincial Government Scholarship, Yunnan Province</li>
                 <!-- Hidden awards that will show when clicking "Show More" -->
                 <li class="expandable">National Scholarship, Ministry of Education of the People's Republic of China</li>
-                <li class="expandable">Outstanding Graduate Award, Yunnan University</li>
-                <li class="expandable">First Prize in National Mathematics Competition for College Students</li>
             </ul>
             <button id="showMoreBtnAwards">Show More</button>
         </div>
@@ -443,8 +448,22 @@
     <script>
         // Toggle description visibility
         function toggleDescription(id) {
-            const desc = document.getElementById(id);
-            desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
+                const desc = document.getElementById(id);
+                if (desc.style.maxHeight) {
+                        // Closing
+                        desc.style.maxHeight = null;
+                        setTimeout(() => {
+                                desc.style.opacity = '0';
+                                desc.style.display = 'none';
+                        }, 300); // Matches transition time
+                } else {
+                        // Opening
+                        desc.style.display = 'block';
+                        requestAnimationFrame(() => {
+                                desc.style.opacity = '1';
+                                desc.style.maxHeight = desc.scrollHeight + 'px';
+                        });
+                }
         }
 
         // Show more functionality

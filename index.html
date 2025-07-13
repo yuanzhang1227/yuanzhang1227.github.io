@@ -5,18 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Yuan Zhang's Personal Homepage</title>
     <style>
+        /* Base reset and responsive settings */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         html {
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-            text-size-adjust: 100%;
-            touch-action: manipulation;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 2vw; /* Uses viewport width for padding */
+        }
+        
+        /* Fluid typography */
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 3rem);
+        }
+        
+        p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+        
+        /* Flexible container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Flexible grid layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2vw;
+        }
+        
+        /* Responsive buttons */
+        .btn {
+            padding: 1vw 2vw;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+        }
+        
+        /* Media queries for fine-tuning */
+        @media (max-width: 768px) {
+            body {
+                padding: 4vw;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        body {
-            overflow-x: hidden;
-            width: 100%;
-            -webkit-overflow-scrolling: touch;
-        }
 
         /* Custom cursor everywhere */
         html, body, a, button, li, 
@@ -30,21 +81,7 @@
             cursor: url('cursor.cur'), auto !important;
         }
 
-        .main-content {
-                width: 1200px;
-                margin: 0 auto;
-                transform-origin: top left;
-        }
-
-        @media (max-width: 1200px) {
-                .main-content {
-                        transform: scale(calc(100vw / 1200));
-                        width: 1200px;
-                        height: calc(100vh / (100vw / 1200));
-                }
-        }
         
-    <style>
         /* Updated CSS for the top section */
         /* Custom cursor implementation */
         html, body,

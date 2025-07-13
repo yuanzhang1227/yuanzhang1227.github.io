@@ -417,83 +417,75 @@
         </div>
 
         <!-- Publications -->
-        <div id="publications" class="section" style="max-width: 700px; margin: 30px auto 0 auto; box-shadow: 0 2px 16px rgba(21,101,192,0.06); border-radius: 16px; background: #fff;">
-                <h2 style="line-height: 1.8; text-align: left; margin: 0 24px; font-size: 1.35em; padding-top: 20px; color: #1565c0;">Publications</h2>
-                <ul id="pub-list" style="line-height: 1.8; text-align: left; margin: 0 24px 0 24px; padding-bottom: 12px; font-size: 1.07em;">
-                        <li>
-                                <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">
-                                        Zhang, Y., Amsler, M., Herrero, L. C., Esser, F., & Bovet, A. (2025). Quantifying the Spread of Online Incivility in Brazilian Politics. Proceedings of the International AAAI Conference on Web and Social Media, 19, 2241–2259.
-                                </a>
+        <div id="publications" class="section">
+                <h2 style="line-height: 1.8; text-align: left; margin: 0 20px;">Publications</h2>
+                <ul style="line-height: 1.8; text-align: left; margin: 0 20px;">
+                        <!-- First 5 items always visible -->
+                        <li onclick="toggleDescription('pub1')">
+                                Zhang, Y., Amsler, M., Herrero, L. C., Esser, F., & Bovet, A. (2025). Quantifying the Spread of Online Incivility in Brazilian Politics. Proceedings of the International AAAI Conference on Web and Social Media, 19, 2241-2259.
                         </li>
-                        <li>
-                                <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank" style="color: #cccccc;">
-                                        Zhang, Y., & Schroeder, R. (2024). “It’s All About US vs THEM!”: Comparing Chinese Populist Discourses on Weibo and Twitter. Social Media + Society, 10(1), 20563051241229659.
-                                </a>
+                        <div id="pub1" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
+                                You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">Proceedings</a>.
+                        </div>
+                        
+                        <li onclick="toggleDescription('pub2')">
+                                Zhang, Y., & Schroeder, R. (2024). "It's All About US vs THEM!": Comparing Chinese Populist Discourses on Weibo and Twitter. Social Media + Society, 10(1), 20563051241229659.
                         </li>
-                        <li>
-                                <a href="https://arxiv.org/abs/2408.03828" target="_blank" style="color: #cccccc;">
-                                        Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.
-                                </a>
+                        <div id="pub2" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
+                                You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Social Media + Society</a>.
+                        </div>
+                        
+                        <li onclick="toggleDescription('pub3')">
+                                Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.
                         </li>
-                        <!-- Add more publications as needed, and wrap extra ones in .expandable-pub below -->
-                        <!--
-                        <span class="expandable-pub" style="display: none;">
-                                <li>
-                                        <a href="..." target="_blank" style="color: #cccccc;">More publication here</a>
+                        <div id="pub3" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
+                                You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">arXiv</a>.
+                        </div>
+
+                        <!-- Additional publications would go here -->
+                        <span class="expandable">
+                                <!-- Example additional publication (uncomment when needed) -->
+                                <!--
+                                <li onclick="toggleDescription('pub4')">
+                                        Example Additional Publication Title. Journal Name, Volume(Issue), Pages.
                                 </li>
+                                <div id="pub4" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
+                                        Additional details about this publication.
+                                </div>
+                                -->
                         </span>
-                        -->
                 </ul>
-                <p style="line-height: 1.8; text-align: left; margin: 0 24px; color: #b0b0b0;">
+                <button id="showMorePubsBtn" style="margin-left: 20px; background-color: #f0f0f0; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; cursor: pointer; display: none;">Show More</button>
+                <p style="line-height: 1.8; text-align: left; margin: 20px 20px 0 20px; color: #b0b0b0;">
                         For more updates on my publications, you can visit my
                         <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank" style="color: #b0b0b0;">
                                 Google Scholar
                         </a>.
                 </p>
-                <button class="show-more-btn" data-expand-target=".expandable-pub"
-                        style="margin-left: 24px; margin-bottom: 14px; color: #1565c0; background: none; border: none; text-decoration: underline; cursor: pointer; font-size: 1em; padding: 0; border-radius: 10px; transition: background 0.13s;">
-                        Show More
-                </button>
         </div>
-        <style>
-                .section ul li {
-                        transition: background 0.13s;
-                        border-radius: 8px;
-                        padding-left: 2em; /* Visually ≈ 8 spaces */
-                }
-                .section ul li:hover {
-                        background: #f6fafd;
-                }
-                .expandable-pub, .expandable {
-                        display: none;
-                }
-                .show-more-btn:hover, .show-more-btn:focus {
-                        background: #f4f8ff;
-                        outline: none;
-                }
-        </style>
+
         <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                        document.querySelectorAll('button[data-expand-target]').forEach(function (btn) {
-                                const targetClass = btn.getAttribute('data-expand-target');
-                                const expandable = btn.closest('.section').querySelector(targetClass);
-                                // Hide button if there is no expandable-pub or less than 6 total publications
-                                if (!expandable) {
-                                        btn.style.display = "none";
-                                }
-                                btn.onclick = function () {
-                                        if (expandable && expandable.style.display === "inline") {
-                                                expandable.style.display = "none";
-                                                btn.textContent = "Show More";
-                                        } else if (expandable) {
-                                                expandable.style.display = "inline";
-                                                btn.textContent = "Show Less";
+                // Publications section show more functionality
+                document.addEventListener("DOMContentLoaded", function() {
+                        const showMorePubsBtn = document.getElementById('showMorePubsBtn');
+                        const expandablePubs = document.querySelector('#publications .expandable');
+                        
+                        // Only show button if there are hidden publications
+                        if (expandablePubs && expandablePubs.querySelectorAll('li').length > 0) {
+                                showMorePubsBtn.style.display = 'inline-block';
+                                
+                                showMorePubsBtn.onclick = function() {
+                                        if (expandablePubs.style.display === "block") {
+                                                expandablePubs.style.display = "none";
+                                                showMorePubsBtn.textContent = "Show More";
+                                        } else {
+                                                expandablePubs.style.display = "block";
+                                                showMorePubsBtn.textContent = "Show Less";
                                         }
                                 };
-                        });
+                        }
                 });
         </script>
-
 
 
 
@@ -643,7 +635,7 @@
         </script>
 
         <!-- Personal Blog -->
-        <div id="personal-blog" class="section">
+        <div id="personal blog" class="section">
                 <h2 style="line-height: 1.8; text-align: left; margin: 0 20px;">Personal Blog</h2>
                 <ul id="blog-list" style="line-height: 1.8; text-align: left; margin: 0 20px;">
                         <!-- First item always visible -->
@@ -695,8 +687,6 @@
                         }
                 });
         </script>
-
-
 
     </div>
     <footer style="text-align: center; margin-top: 40px; padding: 20px; border-top: 1px solid #333; color: #cccccc;">

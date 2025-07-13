@@ -110,7 +110,7 @@
             border: 1px solid rgba(176, 190, 197, 0.3);
             border-radius: 10px;
             padding: 25px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -140,7 +140,7 @@
             margin: 0;
         }
 
-        /* Section styling */
+        /* Section styling - standardized spacing */
         .section {
             background: rgba(20, 20, 20, 0.7);
             border-radius: 10px;
@@ -175,6 +175,15 @@
             background: rgba(60, 60, 60, 0.5);
         }
 
+        /* Hidden expandable items should not take up any space */
+        .expandable.hidden {
+            display: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 0 !important;
+            overflow: hidden !important;
+        }
+
         .description {
                 max-height: 0;
                 opacity: 0;
@@ -192,10 +201,8 @@
                 will-change: max-height, opacity;
         }
 
-
-        /* Buttons */
+        /* Buttons - standardized spacing with reduced margin for Activities and Awards */
         button {
-            margin-left: 20px;
             background-color: rgba(176, 190, 197, 0.2);
             border: 1px solid rgba(176, 190, 197, 0.5);
             color: #b0bec5;
@@ -203,6 +210,13 @@
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+
+        /* Specific styling for Activities and Awards Show More buttons */
+        #showMoreBtn, #showMoreBtnAwards {
+            margin-top: 5px;
         }
 
         button:hover {
@@ -338,64 +352,64 @@
         <div id="activities" class="section">
             <h2>Activities</h2>
             <ul>
-                <li onclick="toggleDescription('desc1')">Visiting term at University of Pennsylvania, 15th Jan - 15th July, 2025</li>
+                <li onclick="toggleDescription('desc1')">Visiting scholar at the University of Pennsylvania, 15th Jan - 15th July, 2025</li>
                 <div id="desc1" class="description">
                     I was happy to spend a productive and insightful term at the University of Pennsylvania in the United States, where I was supervised by Prof. Sandra González-Bailón as part of the Center for Information Networks and Democracy (CIND) at the Annenberg School for Communication."
                     <br>Here is my: <a href="https://www.asc.upenn.edu/people/faculty/yuan-zhang" target="_blank">website profile</a>.
                 </div>
                 
-                <li onclick="toggleDescription('desc1')">Talk at The International AAAI Conference on Web and Social Media (ICWSM), 23rd June, 2025</li>
-                <div id="desc1" class="description">
+                <li onclick="toggleDescription('desc2')">Talk at The International AAAI Conference on Web and Social Media (ICWSM), 23rd June, 2025</li>
+                <div id="desc2" class="description">
                     I presented my recent published work titled "Quantifying the Spread of Online Incivility in Brazilian Politics."
                     <br>You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">AAAI ICWSM Proceedings</a>.
                 </div>
                 
-                <li onclick="toggleDescription('desc2')">Talk at The International Communication Association (ICA), Computational Methods Session, 15th June, 2025</li>
-                <div id="desc2" class="description">
+                <li onclick="toggleDescription('desc3')">Talk at The International Communication Association (ICA), Computational Methods Session, 15th June, 2025</li>
+                <div id="desc3" class="description">
                     I presented an in-progress work titled "The Dark Influence: Uncivil Online Political Influencers Increase Political Polarization on X."
                 </div>
                 
-                <li onclick="toggleDescription('desc3')">Talk at NetSci, 3th June, 2025</li>
-                <div id="desc3" class="description">
+                <li onclick="toggleDescription('desc4')">Talk at NetSci, 3th June, 2025</li>
+                <div id="desc4" class="description">
                     I presented an in-progress work titled "Examining Cross-National Political Fragmentation Using Multi-Scale Community Detection." 
                 </div> 
 
-                <li onclick="toggleDescription('desc4')">Talk at NetPLACE, 14th November, 2024</li>
-                <div id="desc4" class="description">
+                <li onclick="toggleDescription('desc5')">Talk at NetPLACE, 14th November, 2024</li>
+                <div id="desc5" class="description">
                     I gave a talk at NetPLACE titled "Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media." The presentation was followed by a discussion on integrating theory and methodology in computational social science research.
                     <br>For more information, visit: <a href="https://sites.google.com/view/netplace/blog/blogpost-040" target="_blank">NetPLACE Blog</a>.
                 </div>
 
-                <li onclick="toggleDescription('desc5')">Talk at Department of Mathematical Modelling and Machine Learning (DM3L) Inaugural Symposium 2024, University of Zurich, Switzerland</li>
-                <div id="desc5" class="description">
+                <!-- Hidden items that will show when clicking "Show More" -->
+                <li class="expandable hidden" onclick="toggleDescription('desc6')">Talk at Department of Mathematical Modelling and Machine Learning (DM3L) Inaugural Symposium 2024, University of Zurich, Switzerland</li>
+                <div id="desc6" class="description">
                     I gave a lightning talk titled "Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media."
                 </div>
                 
-                <!-- Hidden items that will show when clicking "Show More" -->
-                <li class="expandable" onclick="toggleDescription('desc6')">Talk at NetSci 2024, Québec, Canada</li>
-                <div id="desc6" class="description">
+                <li class="expandable hidden" onclick="toggleDescription('desc7')">Talk at NetSci 2024, Québec, Canada</li>
+                <div id="desc7" class="description">
                     I presented the first work of my PhD titled "Measuring Hierarchical Echo Chambers of Brazilian Political Communities."
                     <br>You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">arXiv</a>.
                 </div>
 
-                <li class="expandable" onclick="toggleDescription('desc7')">Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</li>
-                <div id="desc7" class="description">
+                <li class="expandable hidden" onclick="toggleDescription('desc8')">Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</li>
+                <div id="desc8" class="description">
                     I presented my Master's work titled "One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter."
                     <br>You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Social Media + Society</a>.
                 </div>
 
-                <li class="expandable" onclick="toggleDescription('desc8')">Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</li>
-                <div id="desc8" class="description">
+                <li class="expandable hidden" onclick="toggleDescription('desc9')">Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</li>
+                <div id="desc9" class="description">
                     I presented an in-progress work titled "Untangling the Spread of Political Incivility on Twitter: An Examination of Contagion Dynamics in Networked Communities."
                 </div>
 
-                <li class="expandable" onclick="toggleDescription('desc9')">Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</li>
-                <div id="desc9" class="description">
+                <li class="expandable hidden" onclick="toggleDescription('desc10')">Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</li>
+                <div id="desc10" class="description">
                     I was thrilled to attend the Summer Institute in Computational Social Science in Edinburgh during the summer of 2023.
                 </div>
 
-                <li class="expandable" onclick="toggleDescription('desc10')">Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</li>
-                <div id="desc10" class="description">
+                <li class="expandable hidden" onclick="toggleDescription('desc11')">Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</li>
+                <div id="desc11" class="description">
                     I was thrilled to attend the Summer School of the Standing Group on Political Communication in Amsterdam during the summer of 2023.
                 </div>
             </ul>
@@ -412,7 +426,7 @@
                 <li>Provincial First Prize Award, "Challenge Cup" National Academic Competition</li>
                 <li>Provincial Government Scholarship, Yunnan Province</li>
                 <!-- Hidden awards that will show when clicking "Show More" -->
-                <li class="expandable">National Scholarship, Ministry of Education of the People's Republic of China</li>
+                <li class="expandable hidden">National Scholarship, Ministry of Education of the People's Republic of China</li>
             </ul>
             <button id="showMoreBtnAwards">Show More</button>
         </div>
@@ -424,17 +438,6 @@
                 <li>
                     <a href="https://medium.com/@yuanzhang_46729/three-steps-for-webscraping-using-python-330e38a8e50c" target="_blank">
                         Three Steps for Webscraping Using Python 
-                    </a>
-                </li>
-                <!-- Hidden blog items that will show when clicking "Show More" -->
-                <li class="expandable">
-                    <a href="https://medium.com/@yuanzhang_46729/understanding-political-polarization-through-twitter-networks" target="_blank">
-                        Understanding Political Polarization Through Twitter Networks
-                    </a>
-                </li>
-                <li class="expandable">
-                    <a href="https://medium.com/@yuanzhang_46729/machine-learning-for-social-science-research" target="_blank">
-                        Machine Learning for Social Science Research
                     </a>
                 </li>
             </ul>
@@ -477,45 +480,90 @@
             // Activities section
             const showMoreBtn = document.getElementById('showMoreBtn');
             if (showMoreBtn) {
+                const activitiesList = document.querySelector('#activities ul');
+                const allItems = activitiesList.querySelectorAll('li');
                 const expandableItems = document.querySelectorAll('#activities .expandable');
+                let isExpanded = false;
                 
-                // Initially hide expandable items
-                expandableItems.forEach(item => {
-                    item.style.display = 'none';
-                });
+                // Initially position button after 5th item's description
+                if (allItems.length > 5) {
+                    const fifthItemDescription = document.getElementById('desc5');
+                    if (fifthItemDescription) {
+                        fifthItemDescription.insertAdjacentElement('afterend', showMoreBtn);
+                    } else {
+                        allItems[4].insertAdjacentElement('afterend', showMoreBtn);
+                    }
+                }
                 
                 showMoreBtn.addEventListener('click', function() {
-                    const isExpanded = expandableItems[0].style.display === 'block';
+                    isExpanded = !isExpanded;
                     
                     expandableItems.forEach(item => {
-                        item.style.display = isExpanded ? 'none' : 'block';
+                        if (isExpanded) {
+                            item.classList.remove('hidden');
+                            item.style.display = 'block';
+                        } else {
+                            item.classList.add('hidden');
+                            item.style.display = 'none';
+                        }
                     });
                     
-                    showMoreBtn.textContent = isExpanded ? 'Show More' : 'Show Less';
+                    // Move button position
+                    if (isExpanded) {
+                        // Move to end of list
+                        activitiesList.appendChild(showMoreBtn);
+                        showMoreBtn.textContent = 'Show Less';
+                    } else {
+                        // Move back to after 5th item's description
+                        const fifthItemDescription = document.getElementById('desc5');
+                        if (fifthItemDescription) {
+                            fifthItemDescription.insertAdjacentElement('afterend', showMoreBtn);
+                        } else {
+                            allItems[4].insertAdjacentElement('afterend', showMoreBtn);
+                        }
+                        showMoreBtn.textContent = 'Show More';
+                    }
                 });
             }
 
             // Awards section
             const awardsBtn = document.getElementById('showMoreBtnAwards');
             if (awardsBtn) {
+                const awardsList = document.querySelector('#awards ul');
+                const allAwards = awardsList.querySelectorAll('li');
                 const expandableAwards = document.querySelectorAll('#awards .expandable');
                 let isExpanded = false;
                 
                 // Only proceed if there are expandable items
                 if (expandableAwards.length > 0) {
-                    // Initially hide expandable awards
-                    expandableAwards.forEach(item => {
-                        item.style.display = 'none';
-                    });
+                    // Initially position button after 5th item
+                    if (allAwards.length > 5) {
+                        allAwards[4].insertAdjacentElement('afterend', awardsBtn);
+                    }
                     
                     awardsBtn.addEventListener('click', function() {
                         isExpanded = !isExpanded;
                         
                         expandableAwards.forEach(item => {
-                            item.style.display = isExpanded ? 'list-item' : 'none';
+                            if (isExpanded) {
+                                item.classList.remove('hidden');
+                                item.style.display = 'list-item';
+                            } else {
+                                item.classList.add('hidden');
+                                item.style.display = 'none';
+                            }
                         });
                         
-                        awardsBtn.textContent = isExpanded ? 'Show Less' : 'Show More';
+                        // Move button position
+                        if (isExpanded) {
+                            // Move to end of list
+                            awardsList.appendChild(awardsBtn);
+                            awardsBtn.textContent = 'Show Less';
+                        } else {
+                            // Move back to after 5th item
+                            allAwards[4].insertAdjacentElement('afterend', awardsBtn);
+                            awardsBtn.textContent = 'Show More';
+                        }
                     });
                 } else {
                     // Hide button if no expandable items exist
@@ -526,47 +574,46 @@
             // Blog section
             const blogBtn = document.getElementById('showMoreBlogBtn');
             const blogList = document.getElementById('blog-list');
-            const blogItems = blogList.querySelectorAll('li');
+            const allBlogItems = blogList.querySelectorAll('li');
+            const expandableBlogItems = document.querySelectorAll('#personal-blog .expandable');
+            let blogExpanded = false;
             
-            // Remove the two articles if they exist
-            const articlesToRemove = [
-                'Understanding Political Polarization Through Twitter Networks',
-                'Machine Learning for Social Science Research'
-            ];
-            
-            blogItems.forEach(item => {
-                if (articlesToRemove.some(article => item.textContent.includes(article))) {
-                    item.remove();
-                }
-            });
-            
-            // Get updated list of items after removal
-            const updatedBlogItems = blogList.querySelectorAll('li');
-            
-            // Only show button if there are more than 5 items
-            if (updatedBlogItems.length > 5) {
-                const expandableBlogItems = Array.from(updatedBlogItems).slice(5);
-                
+            // Only show button if there are expandable items
+            if (expandableBlogItems.length > 0) {
                 blogBtn.style.display = 'inline-block';
                 
-                // Initially hide expandable blog items
-                expandableBlogItems.forEach(item => {
-                    item.style.display = 'none';
-                });
+                // Initially position button after first item (since we only have 1 visible item)
+                if (allBlogItems.length > 1) {
+                    allBlogItems[0].insertAdjacentElement('afterend', blogBtn);
+                }
                 
                 blogBtn.addEventListener('click', function() {
-                    const isExpanded = expandableBlogItems[0].style.display === 'block';
+                    blogExpanded = !blogExpanded;
                     
                     expandableBlogItems.forEach(item => {
-                        item.style.display = isExpanded ? 'none' : 'list-item';
+                        if (blogExpanded) {
+                            item.classList.remove('hidden');
+                            item.style.display = 'list-item';
+                        } else {
+                            item.classList.add('hidden');
+                            item.style.display = 'none';
+                        }
                     });
                     
-                    blogBtn.textContent = isExpanded ? 'Show More' : 'Show Less';
+                    // Move button position
+                    if (blogExpanded) {
+                        // Move to end of list
+                        blogList.appendChild(blogBtn);
+                        blogBtn.textContent = 'Show Less';
+                    } else {
+                        // Move back to after first item
+                        allBlogItems[0].insertAdjacentElement('afterend', blogBtn);
+                        blogBtn.textContent = 'Show More';
+                    }
                 });
             } else {
                 blogBtn.style.display = 'none';
             }
-
         });
     </script>
 </body>

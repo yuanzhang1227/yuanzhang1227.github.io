@@ -2,111 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200">
+    <!-- Force desktop layout and scaling on all devices -->
+    <meta name="viewport" content="width=1200, user-scalable=yes">
     <title>Yuan Zhang's Personal Homepage</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { font-size: 16px; }
         body {
             font-family: Arial, sans-serif;
             background: #000;
             color: #fff;
-            line-height: 1.6;
-            padding: 2vw;
             margin: 0;
         }
-        .main-content, .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Lock every main container to 1200px width, centered */
+        .main-content, .container, .top-section, #background-layer {
+            width: 1200px !important;
+            max-width: 1200px !important;
+            min-width: 1200px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        /* All paragraphs fill the container width */
+        p, .about-me p {
+            width: 100%;
+            max-width: 100%;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 0 0 1.2em 0;
         }
         .top-section {
-            height: 300px;
-            background: radial-gradient(circle, #111 40%, #000 100%);
-            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 300px;
+            background: radial-gradient(circle, #111 40%, #000 100%);
             padding: 20px;
-            overflow: hidden;
         }
-        .contact-info { flex: 1; max-width: 50%; }
+        .contact-info {
+            flex: 1;
+            max-width: 50%;
+        }
+        .contact-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
         .nav-links {
             display: flex;
             gap: 20px;
             flex-direction: row;
             align-items: center;
         }
-        .nav-links a {
-            color: #b0bec5;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: color 0.3s, transform 0.3s;
-            padding: 10px 15px;
-        }
-        .nav-links a:hover { color: #ff00ff; transform: scale(1.1); }
-        .contact-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        .contact-icons a { color: #fff; text-decoration: none; font-size: 1em; display: flex; align-items: center;}
-        .contact-icons a img { width: 20px; margin-right: 10px; }
         .about-me {
             display: flex;
             align-items: center;
             gap: 30px;
             margin-bottom: 40px;
-            color: #fff;
         }
         .about-me img {
             width: 200px;
             border-radius: 10px;
             border: 2px solid #b0bec5;
         }
-        .section { margin-bottom: 40px; }
-        .section h2 { color: #b0bec5; border-bottom: 2px solid #b0bec5; display: inline-block; margin-bottom: 10px;}
-        .section ul { list-style: none; padding: 0; }
-        .section ul li { margin: 5px 0; cursor: pointer; }
-        .section ul li a { color: #fff; text-decoration: none; }
-        .section ul li a:hover { color: #b0bec5; }
-        .description { display: none; margin-left: 20px; font-size: 0.9em; color: #cccccc;}
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            color: #b0bec5;
+            border-bottom: 2px solid #b0bec5;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .section ul li {
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        .description {
+            display: none;
+            margin-left: 20px;
+            font-size: 0.97em;
+            color: #cccccc;
+        }
         .expandable { display: none; }
-        .footer { text-align: center; padding: 20px; border-top: 1px solid #333; }
+        .footer { text-align: center; padding: 20px; border-top: 1px solid #333; width: 1200px; margin: 0 auto;}
         .footer a { color: #b0bec5; text-decoration: none; margin: 0 15px; font-size: 1.2em; }
-
-        /* Shooting Stars (keep your own as needed) */
-        .shooting-star {
-            position: absolute;
-            top: calc(-10px + 100vh * var(--random-top));
-            left: calc(-50px + 100vw * var(--random-left));
-            width: var(--star-size);
-            height: var(--star-size);
-            background: radial-gradient(circle, rgba(255, 255, 255, 1), transparent);
-            border-radius: 50%;
-            animation: shooting var(--animation-duration) linear infinite;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
-        }
-        @keyframes shooting {
-            0% { transform: translateX(0) translateY(0) scale(1.5); opacity: 1;}
-            100% { transform: translateX(1000px) translateY(500px) scale(0.5); opacity: 0;}
-        }
-        /* Show More Button style */
-        #showMoreBtn, #showMoreBtnAwards, #showMorePubsBtn {
-            margin-left: 20px; background-color: #f0f0f0; border: 1px solid #ddd; padding: 5px 10px;
-            border-radius: 4px; cursor: pointer; color: #000;
-        }
-        #showMoreBtn:hover, #showMoreBtnAwards:hover, #showMorePubsBtn:hover {
-            background-color: #e0e0e0;
-        }
+        /* Remove all media queries and mobile tweaks */
     </style>
     <script>
-        // Description toggle
         function toggleDescription(id) {
             const desc = document.getElementById(id);
             desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
         }
-        // Show More/Show Less logic
         document.addEventListener("DOMContentLoaded", function() {
             // Activities expandable
             const showMoreBtn = document.getElementById('showMoreBtn');
@@ -120,35 +108,6 @@
                     });
                     showMoreBtn.textContent = isExpanded ? 'Show Less' : 'Show More';
                 });
-            }
-            // Awards
-            const awardsBtn = document.getElementById('showMoreBtnAwards');
-            const awardsExpandable = document.querySelector('#awards .expandable');
-            if (awardsBtn && awardsExpandable) {
-                awardsBtn.onclick = function() {
-                    if (awardsExpandable.style.display === "block") {
-                        awardsExpandable.style.display = "none";
-                        awardsBtn.textContent = "Show More";
-                    } else {
-                        awardsExpandable.style.display = "block";
-                        awardsBtn.textContent = "Show Less";
-                    }
-                };
-            }
-            // Publications
-            const showMorePubsBtn = document.getElementById('showMorePubsBtn');
-            const expandablePubs = document.querySelector('#publications .expandable');
-            if (expandablePubs && expandablePubs.querySelectorAll('li').length > 0) {
-                showMorePubsBtn.style.display = 'inline-block';
-                showMorePubsBtn.onclick = function() {
-                    if (expandablePubs.style.display === "block") {
-                        expandablePubs.style.display = "none";
-                        showMorePubsBtn.textContent = "Show More";
-                    } else {
-                        expandablePubs.style.display = "block";
-                        showMorePubsBtn.textContent = "Show Less";
-                    }
-                };
             }
         });
     </script>

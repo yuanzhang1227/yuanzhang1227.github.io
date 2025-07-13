@@ -417,9 +417,9 @@
         </div>
 
         <!-- Publications -->
-        <div id="publications" class="section">
-                <h2 style="line-height: 1.8; text-align: left; margin: 0 20px;">Publications</h2>
-                <ul id="pub-list" style="line-height: 1.8; text-align: left; margin: 0 20px;">
+        <div id="publications" class="section" style="max-width: 700px; margin: 30px auto 0 auto; box-shadow: 0 2px 16px rgba(21,101,192,0.06); border-radius: 16px; background: #fff;">
+                <h2 style="line-height: 1.8; text-align: left; margin: 0 24px; font-size: 1.35em; padding-top: 20px; color: #1565c0;">Publications</h2>
+                <ul id="pub-list" style="line-height: 1.8; text-align: left; margin: 0 24px 0 24px; padding-bottom: 12px; font-size: 1.07em;">
                         <li>
                                 <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">
                                         Zhang, Y., Amsler, M., Herrero, L. C., Esser, F., & Bovet, A. (2025). Quantifying the Spread of Online Incivility in Brazilian Politics. Proceedings of the International AAAI Conference on Web and Social Media, 19, 2241–2259.
@@ -435,47 +435,66 @@
                                         Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.
                                 </a>
                         </li>
-                        <!-- If you have more publications, add here and wrap them in .expandable-pub span -->
+                        <!-- Add more publications as needed, and wrap extra ones in .expandable-pub below -->
                         <!--
                         <span class="expandable-pub" style="display: none;">
                                 <li>
                                         <a href="..." target="_blank" style="color: #cccccc;">More publication here</a>
                                 </li>
-                                ...more items...
                         </span>
                         -->
                 </ul>
-                <p style="line-height: 1.8; text-align: left; margin: 0 20px; color: #cccccc;">
-                        For more updates on my publications, you can visit my 
-                        <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank" style="color: #cccccc;">
+                <p style="line-height: 1.8; text-align: left; margin: 0 24px; color: #b0b0b0;">
+                        For more updates on my publications, you can visit my
+                        <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank" style="color: #b0b0b0;">
                                 Google Scholar
                         </a>.
                 </p>
-                <button id="showMorePubBtn" style="margin-left: 20px; color: #1565c0; background: none; border: none; text-decoration: underline; cursor: pointer; font-size: 1em; padding: 0;">Show More</button>
+                <button class="show-more-btn" data-expand-target=".expandable-pub"
+                        style="margin-left: 24px; margin-bottom: 14px; color: #1565c0; background: none; border: none; text-decoration: underline; cursor: pointer; font-size: 1em; padding: 0; border-radius: 10px; transition: background 0.13s;">
+                        Show More
+                </button>
         </div>
+        <style>
+                .section ul li {
+                        transition: background 0.13s;
+                        border-radius: 8px;
+                        padding-left: 2em; /* Visually ≈ 8 spaces */
+                }
+                .section ul li:hover {
+                        background: #f6fafd;
+                }
+                .expandable-pub, .expandable {
+                        display: none;
+                }
+                .show-more-btn:hover, .show-more-btn:focus {
+                        background: #f4f8ff;
+                        outline: none;
+                }
+        </style>
         <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                        const showMoreBtn = document.getElementById('showMorePubBtn');
-                        const expandable = document.querySelector('.expandable-pub');
-                        // Hide button if there is no expandable-pub or less than 6 total publications
-                        const pubList = document.querySelectorAll('#pub-list > li');
-                        if (pubList.length <= 5) {
-                                if (showMoreBtn) showMoreBtn.style.display = "none";
-                                if (expandable) expandable.style.display = "none";
-                        }
-                        if (showMoreBtn && expandable) {
-                                showMoreBtn.onclick = function() {
-                                        if (expandable.style.display === "inline") {
+                document.addEventListener("DOMContentLoaded", function () {
+                        document.querySelectorAll('button[data-expand-target]').forEach(function (btn) {
+                                const targetClass = btn.getAttribute('data-expand-target');
+                                const expandable = btn.closest('.section').querySelector(targetClass);
+                                // Hide button if there is no expandable-pub or less than 6 total publications
+                                if (!expandable) {
+                                        btn.style.display = "none";
+                                }
+                                btn.onclick = function () {
+                                        if (expandable && expandable.style.display === "inline") {
                                                 expandable.style.display = "none";
-                                                showMoreBtn.textContent = "Show More";
-                                        } else {
+                                                btn.textContent = "Show More";
+                                        } else if (expandable) {
                                                 expandable.style.display = "inline";
-                                                showMoreBtn.textContent = "Show Less";
+                                                btn.textContent = "Show Less";
                                         }
                                 };
-                        }
+                        });
                 });
         </script>
+
+
 
 
         <!-- Activities -->
@@ -627,11 +646,14 @@
         <div id="personal-blog" class="section">
                 <h2 style="line-height: 1.8; text-align: left; margin: 0 20px;">Personal Blog</h2>
                 <ul id="blog-list" style="line-height: 1.8; text-align: left; margin: 0 20px;">
+                        <!-- First item always visible -->
                         <li>
                                 <a href="https://medium.com/@yuanzhang_46729/three-steps-for-webscraping-using-python-330e38a8e50c" target="_blank">
                                         Three Steps for Webscraping Using Python 
                                 </a>
                         </li>
+                        
+                        <!-- Additional items would go here in expandable section -->
                         <span class="expandable-blog">
                                 <li>
                                         <a href="https://medium.com/@yuanzhang_46729" target="_blank" style="color: #cccccc;">
@@ -640,7 +662,8 @@
                                 </li>
                         </span>
                 </ul>
-                <button id="showMoreBlogBtn" style="margin-left: 20px; color: #1565c0; background: none; border: none; text-decoration: underline; cursor: pointer; font-size: 1em; padding: 0;">Show More</button>
+                <!-- Button will be hidden by JavaScript since less than 5 items -->
+                <button id="showMoreBlogBtn" style="margin-left: 20px; background-color: #f0f0f0; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; cursor: pointer; display: none;">Show More</button>
         </div>
 
         <style>
@@ -650,22 +673,25 @@
         </style>
 
         <script>
-                // Show/Hide expandable blog items
+                // Blog section show more functionality
                 document.addEventListener("DOMContentLoaded", function() {
+                        const blogItems = document.querySelectorAll('#blog-list li');
                         const showMoreBlogBtn = document.getElementById('showMoreBlogBtn');
                         const expandableBlog = document.querySelector('.expandable-blog');
-                        if (showMoreBlogBtn && expandableBlog) {
+                        
+                        // Only show button if there are hidden items (in expandable section)
+                        if (expandableBlog && expandableBlog.querySelectorAll('li').length > 0) {
+                                showMoreBlogBtn.style.display = 'inline-block';
+                                
                                 showMoreBlogBtn.onclick = function() {
-                                        if (expandableBlog.style.display === "inline") {
+                                        if (expandableBlog.style.display === "block") {
                                                 expandableBlog.style.display = "none";
                                                 showMoreBlogBtn.textContent = "Show More";
                                         } else {
-                                                expandableBlog.style.display = "inline";
+                                                expandableBlog.style.display = "block";
                                                 showMoreBlogBtn.textContent = "Show Less";
                                         }
                                 };
-                        } else if (showMoreBlogBtn) {
-                                showMoreBlogBtn.style.display = "none";
                         }
                 });
         </script>

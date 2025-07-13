@@ -343,12 +343,18 @@
 </head>
 <body>
     <div id="background-layer">
-        <div class="shooting-star" style="--random-top: 0.2; --random-left: 0.3; --star-size: 6px; --animation-duration: 4s;"></div>
-        <div class="shooting-star" style="--random-top: 0.4; --random-left: 0.2; --star-size: 8px; --animation-duration: 6s;"></div>
-        <div class="shooting-star" style="--random-top: 0.7; --random-left: 0.5; --star-size: 6px; --animation-duration: 5.5s;"></div>
-        <div class="shooting-star" style="--random-top: 0.3; --random-left: 0.7; --star-size: 7px; --animation-duration: 7s;"></div>
-        <div class="shooting-star" style="--random-top: 0.5; --random-left: 0.9; --star-size: 10px; --animation-duration: 6.5s;"></div>
+        <div class="shooting-star" style="--random-top: 0.12; --random-left: 0.15; --star-size: 7px; --animation-duration: 5s;"></div>
+        <div class="shooting-star" style="--random-top: 0.25; --random-left: 0.4; --star-size: 6px; --animation-duration: 4.5s;"></div>
+        <div class="shooting-star" style="--random-top: 0.31; --random-left: 0.7; --star-size: 8px; --animation-duration: 7s;"></div>
+        <div class="shooting-star" style="--random-top: 0.47; --random-left: 0.9; --star-size: 10px; --animation-duration: 6s;"></div>
+        <div class="shooting-star" style="--random-top: 0.54; --random-left: 0.05; --star-size: 9px; --animation-duration: 8s;"></div>
+        <div class="shooting-star" style="--random-top: 0.62; --random-left: 0.77; --star-size: 7px; --animation-duration: 6.5s;"></div>
+        <div class="shooting-star" style="--random-top: 0.75; --random-left: 0.22; --star-size: 5px; --animation-duration: 4s;"></div>
+        <div class="shooting-star" style="--random-top: 0.83; --random-left: 0.35; --star-size: 11px; --animation-duration: 8.5s;"></div>
+        <div class="shooting-star" style="--random-top: 0.91; --random-left: 0.6; --star-size: 6px; --animation-duration: 7.5s;"></div>
+        <div class="shooting-star" style="--random-top: 0.98; --random-left: 0.13; --star-size: 8px; --animation-duration: 5.2s;"></div>
     </div>
+
     <!-- Top Section -->
     <div class="top-section">
         <!-- Contact Information -->
@@ -419,31 +425,44 @@
                                         Zhang, Y., Amsler, M., Herrero, L. C., Esser, F., & Bovet, A. (2025). Quantifying the Spread of Online Incivility in Brazilian Politics. Proceedings of the International AAAI Conference on Web and Social Media, 19, 2241–2259.
                                 </a>
                         </li>
+                        <li>
+                                <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank" style="color: #cccccc;">
+                                        Zhang, Y., & Schroeder, R. (2024). “It’s All About US vs THEM!”: Comparing Chinese Populist Discourses on Weibo and Twitter. Social Media + Society, 10(1), 20563051241229659.
+                                </a>
+                        </li>
+                        <li>
+                                <a href="https://arxiv.org/abs/2408.03828" target="_blank" style="color: #cccccc;">
+                                        Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.
+                                </a>
+                        </li>
+                        <!-- If you have more publications, add here and wrap them in .expandable-pub span -->
+                        <!--
                         <span class="expandable-pub" style="display: none;">
                                 <li>
-                                        <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank" style="color: #cccccc;">
-                                                Zhang, Y., & Schroeder, R. (2024). “It’s All About US vs THEM!”: Comparing Chinese Populist Discourses on Weibo and Twitter. Social Media + Society, 10(1), 20563051241229659.
-                                        </a>
+                                        <a href="..." target="_blank" style="color: #cccccc;">More publication here</a>
                                 </li>
-                                <li>
-                                        <a href="https://arxiv.org/abs/2408.03828" target="_blank" style="color: #cccccc;">
-                                                Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.
-                                        </a>
-                                </li>
+                                ...more items...
                         </span>
+                        -->
                 </ul>
-                <button id="showMorePubBtn" style="margin-left: 20px; color: #1565c0; background: none; border: none; text-decoration: underline; cursor: pointer; font-size: 1em; padding: 0;">Show More</button>
-                <p style="line-height: 1.8; text-align: left; margin: 0 20px;">
+                <p style="line-height: 1.8; text-align: left; margin: 0 20px; color: #cccccc;">
                         For more updates on my publications, you can visit my 
                         <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank" style="color: #cccccc;">
                                 Google Scholar
                         </a>.
                 </p>
+                <button id="showMorePubBtn" style="margin-left: 20px; color: #1565c0; background: none; border: none; text-decoration: underline; cursor: pointer; font-size: 1em; padding: 0;">Show More</button>
         </div>
         <script>
                 document.addEventListener("DOMContentLoaded", function() {
                         const showMoreBtn = document.getElementById('showMorePubBtn');
                         const expandable = document.querySelector('.expandable-pub');
+                        // Hide button if there is no expandable-pub or less than 6 total publications
+                        const pubList = document.querySelectorAll('#pub-list > li');
+                        if (pubList.length <= 5) {
+                                if (showMoreBtn) showMoreBtn.style.display = "none";
+                                if (expandable) expandable.style.display = "none";
+                        }
                         if (showMoreBtn && expandable) {
                                 showMoreBtn.onclick = function() {
                                         if (expandable.style.display === "inline") {
@@ -571,44 +590,38 @@
                         <li>Provincial First Prize Award, "Challenge Cup" National Academic Competition</li>
                         <li>Provincial Government Scholarship, Yunnan Province</li>
                         <span class="expandable">
-                                <li>National Scholarship, Ministry of Education of the People’s Republic of China</li>
+                                <li>National Scholarship, Ministry of Education of the People's Republic of China</li>
                         </span>
                 </ul>
-                <button id="showMoreAwardsBtn" style="margin-left: 20px; color: #1565c0; background: none; border: none; text-decoration: underline; cursor: pointer; font-size: 1em; padding: 0;">Show More</button>
+                <button id="showMoreBtnAwards" style="margin-left: 20px; background-color: #f0f0f0; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Show More</button>
         </div>
 
-        <!-- Add to your <style> section (if not already present) -->
         <style>
                 .expandable {
                         display: none;
                 }
         </style>
 
-        <!-- Add to your <script> section, or right before </body> -->
         <script>
-                // Show/Hide expandable awards items
+                // Unified show more functionality
                 document.addEventListener("DOMContentLoaded", function() {
-                        const showMoreAwardsBtn = document.getElementById('showMoreAwardsBtn');
-                        const expandable = document.querySelector('#awards-list .expandable');
-                        // Only show the button if there are expandable items
-                        if (showMoreAwardsBtn && expandable) {
-                                showMoreAwardsBtn.onclick = function() {
-                                        if (expandable.style.display === "inline") {
-                                                expandable.style.display = "none";
-                                                showMoreAwardsBtn.textContent = "Show More";
+                        // For Awards section
+                        const awardsBtn = document.getElementById('showMoreBtnAwards');
+                        const awardsExpandable = document.querySelector('#awards .expandable');
+                        
+                        if (awardsBtn && awardsExpandable) {
+                                awardsBtn.onclick = function() {
+                                        if (awardsExpandable.style.display === "block") {
+                                                awardsExpandable.style.display = "none";
+                                                awardsBtn.textContent = "Show More";
                                         } else {
-                                                expandable.style.display = "inline";
-                                                showMoreAwardsBtn.textContent = "Show Less";
+                                                awardsExpandable.style.display = "block";
+                                                awardsBtn.textContent = "Show Less";
                                         }
                                 };
-                        } else if (showMoreAwardsBtn) {
-                                // Hide button if no expandable content
-                                showMoreAwardsBtn.style.display = "none";
                         }
                 });
         </script>
-
-
 
         <!-- Personal Blog -->
         <div id="personal-blog" class="section">

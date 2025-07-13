@@ -6,8 +6,28 @@
     <title>Yuan Zhang's Personal Homepage</title>
     <style>
         /* Updated CSS for the top section */
-        html, body, a, button {
-            cursor: url('cursor.cur'), auto;
+        /* Custom cursor implementation */
+        html, body {
+                cursor: url('cursor.cur'), auto;
+        }
+        
+        a, button, li, 
+        .nav-links a, 
+        .contact-icons a, 
+        #showMoreBtn, 
+        #showMorePubsBtn, 
+        #showMoreBtnAwards,
+        .description a {
+                cursor: default !important;
+        }
+        
+        a:hover, button:hover, 
+        .nav-links a:hover, 
+        .contact-icons a:hover, 
+        #showMoreBtn:hover, 
+        #showMorePubsBtn:hover, 
+        #showMoreBtnAwards:hover {
+                cursor: pointer !important;
         }
         
         .top-section {
@@ -143,6 +163,9 @@
         }
 
                 /* ...other styles... */
+        #personal-blog a {
+            text-decoration: underline;
+        }
 
         .description a {
             color: #cccccc !important;
@@ -530,7 +553,7 @@
                         <li onclick="toggleDescription('desc4')">Talk at NetPLACE, 14th November, 2024</li>
                         <div id="desc4" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
                                 I gave a talk at NetPLACE titled "Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media." The presentation was followed by a discussion on integrating theory and methodology in computational social science research.
-                                <br>For more information, visit: <a href="https://sites.google.com/view/netplace/blog/blogpost-040" target="_blank"">NetPLACE Blog</a>.
+                                <br>For more information, visit: <a href="https://sites.google.com/view/netplace/blog/blogpost-040" target="_blank">NetPLACE Blog</a>.
                         </div>
 
                         <li onclick="toggleDescription('desc5')">Talk at Department of Mathematical Modelling and Machine Learning (DM3L) Inaugural Symposium 2024, University of Zurich, Switzerland</li>
@@ -538,37 +561,35 @@
                                 I gave a lightning talk titled "Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media."
                         </div>
                         
-                        <!-- All additional activities go here, hidden by default -->
-                        <span class="expandable">
-                                <li onclick="toggleDescription('desc6')">Talk at NetSci 2024, Québec, Canada</li>
-                                <div id="desc6" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                        I presented the first work of my PhD titled "Measuring Hierarchical Echo Chambers of Brazilian Political Communities."
-                                        <br>You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">arXiv</a>.
-                                </div>
+                        <!-- Additional activities (initially hidden) -->
+                        <li class="expandable" onclick="toggleDescription('desc6')">Talk at NetSci 2024, Québec, Canada</li>
+                        <div id="desc6" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
+                                I presented the first work of my PhD titled "Measuring Hierarchical Echo Chambers of Brazilian Political Communities."
+                                <br>You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">arXiv</a>.
+                        </div>
 
-                                <li onclick="toggleDescription('desc7')">Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</li>
-                                <div id="desc7" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                        I presented my Master's work titled "One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter."
-                                        <br>You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Social Media + Society</a>.
-                                </div>
+                        <li class="expandable" onclick="toggleDescription('desc7')">Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</li>
+                        <div id="desc7" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
+                                I presented my Master's work titled "One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter."
+                                <br>You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Social Media + Society</a>.
+                        </div>
 
-                                <li onclick="toggleDescription('desc8')">Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</li>
-                                <div id="desc8" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                        I presented an in-progress work titled "Untangling the Spread of Political Incivility on Twitter: An Examination of Contagion Dynamics in Networked Communities."
-                                </div>
+                        <li class="expandable" onclick="toggleDescription('desc8')">Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</li>
+                        <div id="desc8" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
+                                I presented an in-progress work titled "Untangling the Spread of Political Incivility on Twitter: An Examination of Contagion Dynamics in Networked Communities."
+                        </div>
 
-                                <li onclick="toggleDescription('desc9')">Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</li>
-                                <div id="desc9" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                        I was thrilled to attend the Summer Institute in Computational Social Science in Edinburgh during the summer of 2023.
-                                        <br><img src="summer_school_SICSS.jpg" alt="SICSS Photo" style="width: 150px; height: auto;">
-                                </div>
+                        <li class="expandable" onclick="toggleDescription('desc9')">Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</li>
+                        <div id="desc9" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
+                                I was thrilled to attend the Summer Institute in Computational Social Science in Edinburgh during the summer of 2023.
+                                <br><img src="summer_school_SICSS.jpg" alt="SICSS Photo" style="width: 150px; height: auto;">
+                        </div>
 
-                                <li onclick="toggleDescription('desc10')">Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</li>
-                                <div id="desc10" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
-                                        I was thrilled to attend the Summer School of the Standing Group on Political Communication in Amsterdam during the summer of 2023.
-                                        <br><img src="summer_school_PolCom.jpg" alt="Political Communication Photo" style="width: 150px; height: auto;">
-                                </div>
-                        </span>
+                        <li class="expandable" onclick="toggleDescription('desc10')">Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</li>
+                        <div id="desc10" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
+                                I was thrilled to attend the Summer School of the Standing Group on Political Communication in Amsterdam during the summer of 2023.
+                                <br><img src="summer_school_PolCom.jpg" alt="Political Communication Photo" style="width: 150px; height: auto;">
+                        </div>
                 </ul>
                 <button id="showMoreBtn" style="margin-left: 20px; background-color: #f0f0f0; border: 1px solid #ddd; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Show More</button>
         </div>
@@ -595,17 +616,20 @@
                 // Show/Hide expandable items
                 document.addEventListener("DOMContentLoaded", function() {
                         const showMoreBtn = document.getElementById('showMoreBtn');
-                        const expandable = document.querySelector('.expandable');
-                        if (showMoreBtn && expandable) {
-                                showMoreBtn.onclick = function() {
-                                        if (expandable.style.display === "block") {
-                                                expandable.style.display = "none";
-                                                showMoreBtn.textContent = "Show More";
-                                        } else {
-                                                expandable.style.display = "block";
-                                                showMoreBtn.textContent = "Show Less";
-                                        }
-                                };
+                        const expandableItems = document.querySelectorAll('.expandable');
+                        
+                        if (showMoreBtn && expandableItems.length > 0) {
+                                let isExpanded = false;
+                                
+                                showMoreBtn.addEventListener('click', function() {
+                                        isExpanded = !isExpanded;
+                                        
+                                        expandableItems.forEach(item => {
+                                                item.style.display = isExpanded ? 'list-item' : 'none';
+                                        });
+                                        
+                                        showMoreBtn.textContent = isExpanded ? 'Show Less' : 'Show More';
+                                });
                         }
                 });
         </script>
@@ -667,7 +691,7 @@
                         </li>
                 </ul>
                 <p style="line-height: 1.8; text-align: left; margin: 20px 20px 0 20px; color: #b0b0b0;">
-                        You can check updates of articles on Medium
+                        For more updates of articles on Medium
                         <a href="https://medium.com/@yuanzhang_46729" target="_blank" style="color: #b0b0b0;">
                         </a>.
                 </p>

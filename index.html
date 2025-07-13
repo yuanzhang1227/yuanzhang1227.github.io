@@ -50,33 +50,16 @@
     <style>
         /* Updated CSS for the top section */
         /* Custom cursor implementation */
-        html, body {
-                cursor: url('cursor.cur'), auto;
+        html, body,
+        a, a:visited, a:active, a:focus, a:hover,
+        button, button:focus, button:hover,
+        li, li:hover,
+        .nav-links a, .contact-icons a,
+        #showMoreBtn, #showMorePubsBtn, #showMoreBtnAwards,
+        .description a, .description a:hover {
+            cursor: url('cursor.cur'), auto !important;
         }
 
-        .description a,
-        .description a:hover {
-                cursor: default !important;
-        }
-
-        a, button, li, 
-        .nav-links a, 
-        .contact-icons a, 
-        #showMoreBtn, 
-        #showMorePubsBtn, 
-        #showMoreBtnAwards {
-                cursor: default !important;
-        }
-
-        a:hover, button:hover, 
-        .nav-links a:hover, 
-        .contact-icons a:hover, 
-        #showMoreBtn:hover, 
-        #showMorePubsBtn:hover, 
-        #showMoreBtnAwards:hover {
-                cursor: pointer !important;
-        }
-        
         .top-section {
             height: 300px;
             background: url('https://en.wikipedia.org/wiki/Mountain#/media/File:Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg') no-repeat center center; /* Add the background image */
@@ -210,7 +193,7 @@
         }
 
                 /* ...other styles... */
-        #personal-blog a {
+        #personal blog a {
             text-decoration: underline;
         }
 
@@ -731,7 +714,7 @@
         </script>
 
         <!-- Personal Blog -->
-        <div id="personal-blog" class="section">
+        <div id="personal blog" class="section">
                 <h2 style="line-height: 1.8; text-align: left; margin: 0 20px;">Personal Blog</h2>
                 <ul id="blog-list" style="line-height: 1.8; text-align: left; margin: 0 20px;">
                         <!-- First item always visible -->

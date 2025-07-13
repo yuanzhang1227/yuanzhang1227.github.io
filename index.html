@@ -109,7 +109,7 @@
         }
 
         .contact-info a {
-            color: #ff8c00;
+            color: #b0bec5;
             text-decoration: none;
         }
 
@@ -144,7 +144,7 @@
         }
 
         .nav-links a {
-            color: #ff8c00;
+            color: #b0bec5;
             text-decoration: none;
             font-size: 1.2em;
             transition: color 0.3s, transform 0.3s;
@@ -192,8 +192,8 @@
         }
 
         .section h2 {
-            color: #ff8c00;
-            border-bottom: 2px solid #ff8c00;
+            color: #b0bec5;
+            border-bottom: 2px solid #b0bec5;
             display: inline-block;
             margin-bottom: 10px;
         }
@@ -214,7 +214,7 @@
         }
 
         .section ul li a:hover {
-            color: #ff8c00;
+            color: #b0bec5;
         }
 
         .description {
@@ -235,7 +235,7 @@
         .about-me img {
             width: 200px;
             border-radius: 10px;
-            border: 2px solid #ff8c00;
+            border: 2px solid #b0bec5;
         }
 
         .footer {
@@ -245,7 +245,7 @@
         }
 
         .footer a {
-            color: #ff8c00;
+            color: #b0bec5;
             text-decoration: none;
             margin: 0 15px;
             font-size: 1.2em;
@@ -381,7 +381,7 @@
 
         <!-- Navigation -->
         <div class="nav-links">
-            <a href="#resume">Resume</a>
+            <a href="#about-me">About Me</a>
             <a href="#publications">Publications</a>
             <a href="#activities">Activities</a>
             <a href="#awards">Awards</a>
@@ -412,14 +412,37 @@
 
         <!-- Publications -->
         <div id="publications" class="section">
-            <h2 style="line-height: 1.8; text-align: left; margin: 0 20px;">Publications</h2>
-            <ul style="line-height: 1.8; text-align: left; margin: 0 20px;">
-                <li><a href="https://ojs.aaai.org/index.php/ICWSM/article/view/32263" target="_blank">Zhang, Y., Amsler, M., Herrero, L. C., Esser, F., & Bovet, A. (2025). Quantifying the Spread of Online Incivility in Brazilian Politics. Proceedings of the International AAAI Conference on Web and Social Media, 19, 2241–2259.</a></li>
-                <li><a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Zhang, Y., & Schroeder, R. (2024). “It’s All About US vs THEM!”: Comparing Chinese Populist Discourses on Weibo and Twitter. Social Media + Society, 10(1), 20563051241229659.</a></li>
-                <li><a href="https://arxiv.org/abs/2408.03828" target="_blank">Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.</a></li>
-            </ul>
-            <p style="line-height: 1.8; text-align: left; margin: 0 20px;">For more updates on my publications, you can visit my <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
+                <h2 style="line-height: 1.8; text-align: left; margin: 0 20px;">Publications</h2>
+                <ul id="pub-list" style="line-height: 1.8; text-align: left; margin: 0 20px;">
+                        <li>
+                                <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">
+                                        Zhang, Y., Amsler, M., Herrero, L. C., Esser, F., & Bovet, A. (2025). Quantifying the Spread of Online Incivility in Brazilian Politics. Proceedings of the International AAAI Conference on Web and Social Media, 19, 2241–2259.
+                                </a>
+                        </li>
+                        <li class="pub-extra" style="display: none;">
+                                <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">
+                                        Zhang, Y., & Schroeder, R. (2024). “It’s All About US vs THEM!”: Comparing Chinese Populist Discourses on Weibo and Twitter. Social Media + Society, 10(1), 20563051241229659.
+                                </a>
+                        </li>
+                        <li class="pub-extra" style="display: none;">
+                                <a href="https://arxiv.org/abs/2408.03828" target="_blank">
+                                        Zhang, Y., Herrero, L. C., Esser, F., & Bovet, A. (2024). More than 'Left and Right': Revealing Multilevel Online Political Selective Exposure. arXiv preprint arXiv:2408.03828.
+                                </a>
+                        </li>
+                </ul>
+                <a href="#" id="show-more-pub" style="margin: 0 20px; color: #2196F3; text-decoration: underline; cursor: pointer;" onclick="showMorePub(event)">Show More</a>
+                <p style="line-height: 1.8; text-align: left; margin: 0 20px;">For more updates on my publications, you can visit my <a href="https://scholar.google.com/citations?user=aS8B5rkAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
         </div>
+        <script>
+                function showMorePub(e) {
+                        e.preventDefault();
+                        const extras = document.querySelectorAll('#pub-list .pub-extra');
+                        const showMoreBtn = document.getElementById('show-more-pub');
+                        extras.forEach(el => el.style.display = (el.style.display === 'none') ? 'list-item' : 'none');
+                        showMoreBtn.textContent = (showMoreBtn.textContent === 'Show More') ? 'Show Less' : 'Show More';
+                }
+        </script>
+
 
         <!-- Activities -->
         <div id="activities" class="section">
@@ -429,7 +452,7 @@
                         <li onclick="toggleDescription('desc1')">Talk at The International AAAI Conference on Web and Social Media (ICWSM), 23rd June, 2025</li>
                         <div id="desc1" class="description" style="line-height: 1.5; text-align: left; margin: 0 20px; color: #cccccc;">
                                 I presented my recent published work titled “Quantifying the Spread of Online Incivility in Brazilian Politics.”
-                                <br>You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">arXiv</a>.
+                                <br>You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">Proceedings</a>.
                         </div>
                         
                         <li onclick="toggleDescription('desc2')">Talk at The International Communication Association (ICA), Computational Methods Session, 15th June, 2025</li>
@@ -526,37 +549,59 @@
         <!-- Awards -->
         <div id="awards" class="section">
                 <h2 style="line-height: 1.8; text-align: left; margin: 0 20px;">Awards</h2>
-                <ul style="line-height: 1.8; text-align: left; margin: 0 20px;">
+                <ul id="awards-list" style="line-height: 1.8; text-align: left; margin: 0 20px;">
                         <li>Best Poster Award, NetSci Conference 2025, Maastricht</li>
-                        <li>Swiss National Science Foundation (SNSF) Mobility Grant for Exchange Scholar (CHF 20,000)</li>
-                        <li>Guoyu Fang Scholarship, Yunnan University</li>
-                        <li>Provincial First Prize Award, "Challenge Cup" National Academic Competition</li>
-                        <li>Provincial Government Scholarship, Yunnan Province</li>
-                        <li>National Scholarship, Ministry of Education of the People’s Republic of China</li>
+                        <li class="award-extra" style="display: none;">Swiss National Science Foundation (SNSF) Mobility Grant for Exchange Scholar (CHF 20,000)</li>
+                        <li class="award-extra" style="display: none;">Guoyu Fang Scholarship, Yunnan University</li>
+                        <li class="award-extra" style="display: none;">Provincial First Prize Award, "Challenge Cup" National Academic Competition</li>
+                        <li class="award-extra" style="display: none;">Provincial Government Scholarship, Yunnan Province</li>
+                        <li class="award-extra" style="display: none;">National Scholarship, Ministry of Education of the People’s Republic of China</li>
                 </ul>
+                <a href="#" id="show-more-awards" style="margin: 0 20px; color: #2196F3; text-decoration: underline; cursor: pointer;" onclick="showMoreAwards(event)">Show More</a>
         </div>
+        <script>
+                function showMoreAwards(e) {
+                        e.preventDefault();
+                        const extras = document.querySelectorAll('#awards-list .award-extra');
+                        const showMoreBtn = document.getElementById('show-more-awards');
+                        extras.forEach(el => el.style.display = (el.style.display === 'none') ? 'list-item' : 'none');
+                        showMoreBtn.textContent = (showMoreBtn.textContent === 'Show More') ? 'Show Less' : 'Show More';
+                }
+        </script>
+
 
         <!-- Personal Blog -->
-        <div id="personal blog" class="section">
+        <div id="personal-blog" class="section">
                 <h2 style="line-height: 1.8; text-align: left; margin: 0 20px;">Personal Blog</h2>
-                <ul style="line-height: 1.8; text-align: left; margin: 0 20px;">
+                <ul id="blog-list" style="line-height: 1.8; text-align: left; margin: 0 20px;">
                         <li>
                                 <a href="https://medium.com/@yuanzhang_46729/three-steps-for-webscraping-using-python-330e38a8e50c" target="_blank">
-                                        Three Steps for Webscraping Using Python (Medium Article)
+                                        Three Steps for Webscraping Using Python 
                                 </a>
                         </li>
-                        <li>
+                        <li class="blog-extra" style="display: none;">
                                 <a href="https://medium.com/@yuanzhang_46729" target="_blank">
                                         See all my articles on Medium
                                 </a>
                         </li>
                 </ul>
+                <a href="#" id="show-more-blog" style="margin: 0 20px; color: #2196F3; text-decoration: underline; cursor: pointer;" onclick="showMoreBlog(event)">Show More</a>
         </div>
+        <script>
+                function showMoreBlog(e) {
+                        e.preventDefault();
+                        const extras = document.querySelectorAll('#blog-list .blog-extra');
+                        const showMoreBtn = document.getElementById('show-more-blog');
+                        extras.forEach(el => el.style.display = (el.style.display === 'none') ? 'list-item' : 'none');
+                        showMoreBtn.textContent = (showMoreBtn.textContent === 'Show More') ? 'Show Less' : 'Show More';
+                }
+        </script>
+
 
     </div>
     <footer style="text-align: center; margin-top: 40px; padding: 20px; border-top: 1px solid #333; color: #cccccc;">
         <p>&copy; Updated Jul 2025 | Yuan Zhang</p>
-        <p>Contact: <a href="mailto:y.zhang@ikmz.uzh.ch" style="color: #ff8c00;">y.zhang@ikmz.uzh.ch</a></p>
+        <p>Contact: <a href="mailto:y.zhang@ikmz.uzh.ch" style="color: #b0bec5;">y.zhang@ikmz.uzh.ch</a></p>
     </footer>
 </body>
 </html>

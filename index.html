@@ -185,20 +185,24 @@
         }
 
         .description {
-                max-height: 0;
-                opacity: 0;
-                overflow: hidden;
-                transition: 
-                        max-height 0.3s ease-out,
-                        opacity 0.3s ease-out;
-                margin: 10px 0 15px 20px;
-                padding: 0 15px;
-                background: rgba(40, 40, 40, 0.7);
-                border-left: 3px solid #b0bec5;
-                border-radius: 0 5px 5px 0;
-                font-size: 0.97em;
-                color: #cccccc;
-                will-change: max-height, opacity;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition:
+                max-height 0.3s ease-out,
+                opacity 0.3s ease-out;
+            margin: 0 0 0 20px;
+            padding: 0 15px;
+            background: rgba(40, 40, 40, 0.7);
+            border-left: 3px solid #b0bec5;
+            border-radius: 0 5px 5px 0;
+            font-size: 0.97em;
+            color: #cccccc;
+            will-change: max-height, opacity;
+        }
+
+        .description.open {
+            margin: 10px 0 15px 20px;
         }
 
         /* Buttons - standardized spacing with reduced margin for Activities and Awards */
@@ -266,7 +270,7 @@
         <div class="contact-info">
             <h1>Yuan Zhang</h1>
             <p>Interdisciplinary researcher</p>
-            <p>AI Alignment & Governance · Computational Social Science · Network Science · Political Communication</p>
+            <p>AI Alignment & Governance · Computational Social Science · Network Science</p>
             <p>Zurich, Switzerland &#x1F4CD;</p>
             <div class="contact-icons">
                 <a href="mailto:y.zhang1227@hotmail.com">
@@ -305,25 +309,36 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <!-- About Me -->
-        <div id="about-me" class="section">
-            <h2>About Me</h2>
-            <div class="about-me">
+    <!-- About Me -->
+    <div id="about-me" class="section">
+        <h2>About Me</h2>
+
+        <div class="about-me">
+            <div class="about-text">
                 <p>
-                    I obtained my Ph.D. degree at the University of Zurich (UZH) in 2026, advised by
+                    I obtained my Ph.D. degree at the University of Zurich in 2026, advised by
                     <a href="https://www.ikmz.uzh.ch/en/research/divisions/international-and-comparative-media-research/team/frank-esser.html" target="_blank">Prof. Frank Esser</a>,
                     <a href="https://www.laiacastro.com/" target="_blank">Prof. Laia Castro Herrero</a>,
                     and
                     <a href="https://alexbovet.github.io/" target="_blank">Prof. Alexandre Bovet</a>.
-                    I was a visiting scholar at the University of Pennsylvania for one semester in 2025, hosted by 
-                    <a href="https://www.asc.upenn.edu/people/faculty/sandra-gonzalez-bailon-phd" target="_blank">Prof. Sandra González-Bailón
-                    </a>.
-                    My research interests lie at the intersection of social science theories and computational methods. 
-                    I am interested both in developing computational models to understand complex real-world social phenomena and in using social theories to guide the development of socially beneficial technologies. 
-                    My current research also focuses on multi-agent AI alignment and governance, with an enthusiasm of contributing to a world that is both technologically efficient and socially warm. Please feel free to contact me if you are interested in collaboration or simply in having a conversation. 
-                <img src="photo.jpg" alt="Yuan Zhang's photo">
+
+                    I was a visiting scholar at the University of Pennsylvania for one semester in 2025, hosted by
+                    <a href="https://www.asc.upenn.edu/people/faculty/sandra-gonzalez-bailon-phd" target="_blank">Prof. Sandra González-Bailón</a>.
+
+                    My research interests lie at the intersection of social science theories and computational methods.
+                    I am interested both in developing computational models to understand complex real-world social phenomena
+                    and in using social theories to guide the development of socially beneficial technologies.
+
+                    My current research also focuses on multi-agent AI alignment and governance, with an enthusiasm for
+                    contributing to a world that is both technologically efficient and socially tolerant.
+
+                    Please feel free to contact me if you are interested in collaboration or simply in having a conversation.
+                </p>
             </div>
+
+            <img src="photo.jpg" alt="Yuan Zhang" class="profile-photo">
         </div>
+    </div>
 
     <style>
       .research-projects { --ink:#172033; --muted:#64748b; --line:#e2e8f0; --surface:#ffffff; --soft:#f8fafc; --accent:#5b5bd6; }
@@ -353,7 +368,7 @@
       <p class="rp-intro">Here are visualizations of some of my selected research projects.</p>
 
       <div class="rp-grid">
-        <a class="rp-card" href="projects/selective-exposure.html">
+        <a class="rp-card" href="selective-exposure.html">
           <div class="rp-meta"><span>Network Science · Political Communication</span><span class="rp-num">01</span></div>
           <h3>Multilevel Political Selective Exposure</h3>
           <p class="rp-desc">Explore how political communities change from fine-grained social identities to broader ideological divisions across network scales.</p>
@@ -361,7 +376,7 @@
           <div class="rp-cta">Explore the network →</div>
         </a>
 
-        <a class="rp-card" href="projects/incivility-spread.html">
+        <a class="rp-card" href="incivility-spread.html">
           <div class="rp-meta"><span>Computational Social Science · Incivility</span><span class="rp-num">02</span></div>
           <h3>Spread of Online Political Incivility</h3>
           <p class="rp-desc">Compare four dimensions of incivility and inspect direct, two-step, and mixed pathways through which uncivil content reaches audiences.</p>
@@ -369,7 +384,7 @@
           <div class="rp-cta">Explore the dynamics →</div>
         </a>
 
-        <a class="rp-card" href="projects/lingo.html">
+        <a class="rp-card" href="lingo.html">
           <div class="rp-meta"><span>LLMs · NLP · Explainable AI</span><span class="rp-num">03</span></div>
           <h3>LinGO: Linguistic Graph Optimization</h3>
           <p class="rp-desc">Walk through the linguistic decision graph used to distinguish explicit, implicit, reporting, countering, intensifying, and escalating incivility.</p>
@@ -377,7 +392,7 @@
           <div class="rp-cta">Run the reasoning graph →</div>
         </a>
 
-        <a class="rp-card" href="projects/fragmentation.html">
+        <a class="rp-card" href="fragmentation.html">
           <div class="rp-meta"><span>Network Metrics · Multiscale Systems</span><span class="rp-num">04</span></div>
           <h3>Measuring Structural Fragmentation</h3>
           <p class="rp-desc">Interact with the three complementary dimensions of fragmentation: separation strength, number of fragments, and cross-scale branching.</p>
@@ -387,7 +402,7 @@
       </div>
     </div>
 
-        <!-- Activities -->
+        <!-- Activities & News -->
         <div id="activities" class="section">
             <h2>Activities</h2>
             <ul>
@@ -396,72 +411,72 @@
                     I am delighted to announce the completion of my PhD journey following my successful PhD defense on 18 May 2026. I defended my dissertation titled "Computational Modeling of Online Political Confrontation: Real-World Complexity and Methodological Advances."
                     I would like to thank my doctoral committee members, Prof. Dr. Sandra González-Bailón and Prof. Dr. Jing Zeng, as well as everyone who came to support me.
                 </div>
-                
-                <li onclick="toggleDescription('desc1')">Visiting scholar at the University of Pennsylvania, 15th Jan - 15th July, 2025</li>
-                <div id="desc1" class="description">
+
+                <li onclick="toggleDescription('desc2')">Visiting scholar at the University of Pennsylvania, 15th Jan - 15th July, 2025</li>
+                <div id="desc2" class="description">
                     I was happy to spend a productive and insightful term at the University of Pennsylvania in the United States, where I was supervised by Prof. Sandra González-Bailón as part of the Center for Information Networks and Democracy (CIND) at the Annenberg School for Communication.
                     <br>See: <a href="https://www.asc.upenn.edu/research/centers/center-for-information-networks-and-democracy/people" target="_blank">website profile</a>.
                 </div>
-                
-                <li onclick="toggleDescription('desc2')">Talk at The International AAAI Conference on Web and Social Media (ICWSM), 23rd June, 2025</li>
-                <div id="desc2" class="description">
+
+                <li onclick="toggleDescription('desc3')">Talk at The International AAAI Conference on Web and Social Media (ICWSM), 23rd June, 2025</li>
+                <div id="desc3" class="description">
                     I presented my recent published work titled "Quantifying the Spread of Online Incivility in Brazilian Politics."
                     <br>You can read the full paper here: <a href="https://ojs.aaai.org/index.php/ICWSM/article/view/35931/38085" target="_blank">AAAI ICWSM Proceedings</a>.
                 </div>
-                
-                <li onclick="toggleDescription('desc3')">Talk at The International Communication Association (ICA), Computational Methods Session, 15th June, 2025</li>
-                <div id="desc3" class="description">
+
+                <li onclick="toggleDescription('desc4')">Talk at The International Communication Association (ICA), Computational Methods Session, 15th June, 2025</li>
+                <div id="desc4" class="description">
                     I presented an in-progress work titled "The Dark Influence: Uncivil Online Political Influencers Increase Political Polarization on X."
                 </div>
-                
-                <li onclick="toggleDescription('desc4')">Talk at NetSci, 3th June, 2025</li>
-                <div id="desc4" class="description">
+
+                <li onclick="toggleDescription('desc5')">Talk at NetSci, 3th June, 2025</li>
+                <div id="desc5" class="description">
                     I presented an in-progress work titled "Examining Cross-National Political Fragmentation Using Multi-Scale Community Detection." 
                 </div> 
 
-                <li onclick="toggleDescription('desc5')">Talk at NetPLACE, 14th November, 2024</li>
-                <div id="desc5" class="description">
+                <li onclick="toggleDescription('desc6')">Talk at NetPLACE, 14th November, 2024</li>
+                <div id="desc6" class="description">
                     I gave a talk at NetPLACE titled "Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media." The presentation was followed by a discussion on integrating theory and methodology in computational social science research.
                     <br>For more information, visit: <a href="https://netplace.site/seminar/040_yuan_zhang/" target="_blank">NetPLACE Blog</a>.
                 </div>
 
                 <!-- Hidden items that will show when clicking "Show More" -->
-                <li class="expandable hidden" onclick="toggleDescription('desc6')">Talk at Department of Mathematical Modelling and Machine Learning (DM3L) Inaugural Symposium 2024, University of Zurich, Switzerland</li>
-                <div id="desc6" class="description">
+                <li class="expandable hidden" onclick="toggleDescription('desc7')">Talk at Department of Mathematical Modelling and Machine Learning (DM3L) Inaugural Symposium 2024, University of Zurich, Switzerland</li>
+                <div id="desc7" class="description">
                     I gave a lightning talk titled "Revealing Multilevel Political Selective Exposure, Echo Chambers, and Polarization on Social Media."
                 </div>
-                
-                <li class="expandable hidden" onclick="toggleDescription('desc7')">Talk at NetSci 2024, Québec, Canada</li>
-                <div id="desc7" class="description">
+
+                <li class="expandable hidden" onclick="toggleDescription('desc8')">Talk at NetSci 2024, Québec, Canada</li>
+                <div id="desc8" class="description">
                     I presented the first work of my PhD titled "Measuring Hierarchical Echo Chambers of Brazilian Political Communities."
                     <br>You can read the full paper here: <a href="https://arxiv.org/abs/2408.03828" target="_blank">arXiv</a>.
                 </div>
 
-                <li class="expandable hidden" onclick="toggleDescription('desc8')">Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</li>
-                <div id="desc8" class="description">
+                <li class="expandable hidden" onclick="toggleDescription('desc9')">Talk at International Conference on Computational Social Science (IC2S2) 2023, Copenhagen, Denmark</li>
+                <div id="desc9" class="description">
                     I presented my Master's work titled "One Image, Two Mirrors: Mapping Chinese Populist Ultranationalism on Weibo and Twitter."
                     <br>You can read the full paper here: <a href="https://journals.sagepub.com/doi/full/10.1177/20563051241229659" target="_blank">Social Media + Society</a>.
                 </div>
 
-                <li class="expandable hidden" onclick="toggleDescription('desc9')">Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</li>
-                <div id="desc9" class="description">
+                <li class="expandable hidden" onclick="toggleDescription('desc10')">Talk at ECREA Political Communication Section Conference 2023, Berlin, Germany</li>
+                <div id="desc10" class="description">
                     I presented an in-progress work titled "Untangling the Spread of Political Incivility on Twitter: An Examination of Contagion Dynamics in Networked Communities."
                 </div>
 
-                <li class="expandable hidden" onclick="toggleDescription('desc10')">Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</li>
-                <div id="desc10" class="description">
+                <li class="expandable hidden" onclick="toggleDescription('desc11')">Summer Institute in Computational Social Science 2023, University of Edinburgh, United Kingdom</li>
+                <div id="desc11" class="description">
                     I was thrilled to attend the Summer Institute in Computational Social Science in Edinburgh during the summer of 2023.
                 </div>
 
-                <li class="expandable hidden" onclick="toggleDescription('desc11')">Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</li>
-                <div id="desc11" class="description">
+                <li class="expandable hidden" onclick="toggleDescription('desc12')">Summer School of the Standing Group on Political Communication 2023, University of Amsterdam</li>
+                <div id="desc12" class="description">
                     I was thrilled to attend the Summer School of the Standing Group on Political Communication in Amsterdam during the summer of 2023.
                 </div>
             </ul>
             <button id="showMoreBtn">Show More</button>
         </div>
 
-        <!-- Awards -->
+        <!-- Awards & Grants -->
         <div id="awards" class="section">
             <h2>Awards</h2>
             <ul id="awards-list">
@@ -495,79 +510,64 @@
     </div>
 
     <footer>
-        <p>&copy; Updated Jul 2025 | Yuan Zhang</p>
+        <p>&copy; Updated Aug 2026 | Yuan Zhang</p>
         <p>Contact: <a href="mailto:y.zhang@ikmz.uzh.ch">y.zhang@ikmz.uzh.ch</a></p>
     </footer>
 
     <script>
         // Toggle description visibility
         function toggleDescription(id) {
-                const desc = document.getElementById(id);
-                if (desc.style.maxHeight) {
-                        // Closing
-                        desc.style.maxHeight = null;
-                        setTimeout(() => {
-                                desc.style.opacity = '0';
-                                desc.style.display = 'none';
-                        }, 300); // Matches transition time
-                } else {
-                        // Opening
-                        desc.style.display = 'block';
-                        requestAnimationFrame(() => {
-                                desc.style.opacity = '1';
-                                desc.style.maxHeight = desc.scrollHeight + 'px';
-                        });
-                }
+            const desc = document.getElementById(id);
+
+            if (!desc) {
+                return;
+            }
+
+            const isOpen = desc.classList.contains('open');
+
+            if (isOpen) {
+                desc.style.maxHeight = '0';
+                desc.style.opacity = '0';
+                desc.classList.remove('open');
+            } else {
+                desc.classList.add('open');
+                desc.style.opacity = '1';
+                desc.style.maxHeight = desc.scrollHeight + 'px';
+            }
         }
 
         // Show more functionality
         document.addEventListener("DOMContentLoaded", function() {
             // Activities section
             const showMoreBtn = document.getElementById('showMoreBtn');
+
             if (showMoreBtn) {
                 const activitiesList = document.querySelector('#activities ul');
-                const allItems = activitiesList.querySelectorAll('li');
-                const expandableItems = document.querySelectorAll('#activities .expandable');
+                const expandableItems = document.querySelectorAll('#activities li.expandable');
                 let isExpanded = false;
-                
-                // Initially position button after 5th item's description
-                if (allItems.length > 5) {
-                    const fifthItemDescription = document.getElementById('desc5');
-                    if (fifthItemDescription) {
-                        fifthItemDescription.insertAdjacentElement('afterend', showMoreBtn);
-                    } else {
-                        allItems[4].insertAdjacentElement('afterend', showMoreBtn);
-                    }
-                }
-                
+
                 showMoreBtn.addEventListener('click', function() {
                     isExpanded = !isExpanded;
-                    
+
                     expandableItems.forEach(item => {
+                        const description = item.nextElementSibling;
+
                         if (isExpanded) {
                             item.classList.remove('hidden');
                             item.style.display = 'block';
                         } else {
                             item.classList.add('hidden');
                             item.style.display = 'none';
+
+                            if (description && description.classList.contains('description')) {
+                                description.style.maxHeight = '0';
+                                description.style.opacity = '0';
+                                description.classList.remove('open');
+                            }
                         }
                     });
-                    
-                    // Move button position
-                    if (isExpanded) {
-                        // Move to end of list
-                        activitiesList.appendChild(showMoreBtn);
-                        showMoreBtn.textContent = 'Show Less';
-                    } else {
-                        // Move back to after 5th item's description
-                        const fifthItemDescription = document.getElementById('desc5');
-                        if (fifthItemDescription) {
-                            fifthItemDescription.insertAdjacentElement('afterend', showMoreBtn);
-                        } else {
-                            allItems[4].insertAdjacentElement('afterend', showMoreBtn);
-                        }
-                        showMoreBtn.textContent = 'Show More';
-                    }
+
+                    showMoreBtn.textContent = isExpanded ? 'Show Less' : 'Show More';
                 });
             }
 
